@@ -1,0 +1,1 @@
+INSERT INTO company VALUES (1);
