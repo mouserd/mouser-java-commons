@@ -4,6 +4,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.pixelus.ModelEntity;
 
 public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K> {
+	
+	private static final Logger LOG = Logger.getLogger(AbstractHibernateDaoImpl.class);
 
 	private SessionFactory sessionFactory;
 	private Class entityClass;
@@ -33,6 +36,8 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K> {
 	}
 
 	public List<T> findAll() {
+		
+		LOG.info("Finding all " + entityClass.getName() + " objects...");
 		
 		Session session = currentSession();
 		
