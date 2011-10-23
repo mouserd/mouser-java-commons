@@ -16,10 +16,11 @@ import com.pixelus.user.User;
 import com.pixelus.user.UserDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"/persistence.xml"})
+@ContextConfiguration(locations={"/context-datasource-test.xml", "/context-persistence.xml"})
 public class UserDaoHibernateImplTest
 	extends AbstractTransactionalJUnit4SpringContextTests {
 	
+	private static final Long TEST_USER_ID = 1L;
 	private static final String TEST_SURNAME = "Bennet";
 	private static final String TEST_FIRSTNAME = "David";
 	private static final Long TEST_COMPANY_ID = 1L;
@@ -31,6 +32,16 @@ public class UserDaoHibernateImplTest
 	public void setup() {
 		
 		executeSqlScript("/com/pixelus/company/company.sql", false);
+	}
+	
+	@Test
+	public void testFindUserById() {
+		
+		executeSqlScript("/com/pixelus/user/user.sql", false);
+		
+		User user = userDao.findById(TEST_USER_ID);
+		
+		assertNotNull(user);
 	}
 	
 	@Test

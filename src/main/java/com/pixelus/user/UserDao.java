@@ -1,10 +1,7 @@
 package com.pixelus.user;
 
-import java.util.List;
+import com.pixelus.Dao;
 
-public interface UserDao {
-
-	void save(User user);
-
-	List<User> findAll();
+public interface UserDao
+	extends Dao<User, Long> {
 }

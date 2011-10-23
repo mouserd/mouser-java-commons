@@ -10,9 +10,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.pixelus.Dao;
 import com.pixelus.ModelEntity;
 
-public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K> {
+public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
+	implements Dao<T, K> {
 	
 	private static final Logger LOG = Logger.getLogger(AbstractHibernateDaoImpl.class);
 
@@ -30,11 +32,24 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K> {
 		return sessionFactory.getCurrentSession();
 	}
 	
+	@Override
 	public void save(T entity) {
 
 		currentSession().save(entity);
 	}
+	
+	public T findById(K id) {
+		
+		LOG.info("Finding " + entityClass.getName() +" by id " + id);
+		Session session = currentSession();
+		
+		Query query = session.createQuery("from " + entityClass.getName() 
+				+ " where id = " + id);
+		
+		return (T) query.uniqueResult();
+	}
 
+	@Override
 	public List<T> findAll() {
 		
 		LOG.info("Finding all " + entityClass.getName() + " objects...");

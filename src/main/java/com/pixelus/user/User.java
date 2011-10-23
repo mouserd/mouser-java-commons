@@ -14,7 +14,7 @@ import com.pixelus.ModelEntity;
 import com.pixelus.company.Company;
 
 @Entity
-@Table(name="USER")
+@Table(name="USER_DETAILS")
 public class User
 	implements ModelEntity<Long>, Serializable {
 
