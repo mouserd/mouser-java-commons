@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Users</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script type="text/javascript">
+        $.getJSON('/api/user/2.json', function(data) {
+        	  var items = [];
+
+        	  $.each(data, function(key, val) {
+        	    items.push('<li id="' + key + '">' + key +" = "+ val + '</li>');
+        	  });
+
+        	  $('<ul/>', {
+        	    'class': 'my-new-list',
+        	    html: items.join('')
+        	  }).appendTo('body');
+        	});
+        </script>
+    </head>
+    <body>
+        Body
+    </body>
+</html>
