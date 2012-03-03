@@ -11,31 +11,31 @@ import javax.persistence.Table;
 import com.pixelus.ModelEntity;
 
 @Entity
-@Table(name="Company")
-public class Company 
-	implements ModelEntity<Long>, Serializable {
-	
-	private static final long serialVersionUID = 3736121467799075340L;
-	
-	@Id
-	@GeneratedValue
-	@Column(name="USER_ID")
-	private Long id;
-	
-	public Company() {
-	}
-	
-	public Company(Long id) {
-		this.id = id;
-	}
-	
-	@Override
-	public Long getId() {
-		return id;
-	}
+@Table(name = "Company")
+public class Company
+        implements ModelEntity<Long>, Serializable {
 
-	@Override
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private static final long serialVersionUID = 3736121467799075340L;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "USER_ID")
+    private Long id;
+
+    public Company() {
+    }
+
+    public Company(final Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(final Long id) {
+        this.id = id;
+    }
 }

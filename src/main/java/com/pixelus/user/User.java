@@ -14,58 +14,58 @@ import com.pixelus.ModelEntity;
 import com.pixelus.company.Company;
 
 @Entity
-@Table(name="USER_DETAILS")
+@Table(name = "USER_DETAILS")
 public class User
-	implements ModelEntity<Long>, Serializable {
+        implements ModelEntity<Long>, Serializable {
 
-	private static final long serialVersionUID = -4145030714084815206L;
+    private static final long serialVersionUID = -4145030714084815206L;
 
-	@Id
-	@GeneratedValue
-	@Column(name="USER_ID")
-	private Long id;
-	
-	@Column(name="FIRST_NAME", nullable = false)
-	private String firstName;
-	
-	@Column(name="SURNAME", nullable = false)
-	private String surname;
-	
-	@ManyToOne
-	@JoinColumn(name="COMPANY_ID")
-	private Company company;
-	
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue
+    @Column(name = "USER_ID")
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "FIRST_NAME", nullable = false)
+    private String firstName;
 
-	public String getFirstName() {
-		return firstName;
-	}
+    @Column(name = "SURNAME", nullable = false)
+    private String surname;
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	public String getSurname() {
-		
-		return surname;
-	}
+    @ManyToOne
+    @JoinColumn(name = "COMPANY_ID")
+    private Company company;
 
-	public void setSurname(String surname) {
-		
-		this.surname = surname;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Company getCompany() {
-		return company;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setCompany(Company company) {
-		this.company = company;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSurname() {
+
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+
+        this.surname = surname;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 }

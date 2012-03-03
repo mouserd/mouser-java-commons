@@ -14,54 +14,54 @@ import com.pixelus.Dao;
 import com.pixelus.ModelEntity;
 
 public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
-	implements Dao<T, K> {
-	
-	private static final Logger LOG = Logger.getLogger(AbstractHibernateDaoImpl.class);
+        implements Dao<T, K> {
 
-	private SessionFactory sessionFactory;
-	private Class entityClass;
-	
-	@Autowired
-	public AbstractHibernateDaoImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-		entityClass = getEntityClass();
-	}
+    private static final Logger LOG = Logger.getLogger(AbstractHibernateDaoImpl.class);
 
-	protected Session currentSession() {
-		
-		return sessionFactory.getCurrentSession();
-	}
-	
-	@Override
-	public void save(T entity) {
+    private SessionFactory sessionFactory;
+    private Class entityClass;
 
-		currentSession().save(entity);
-	}
-	
-	public T findById(K id) {
-		
-		LOG.info("Finding " + entityClass.getName() +" by id " + id);
-		Session session = currentSession();
-		
-		Query query = session.createQuery("from " + entityClass.getName() 
-				+ " where id = " + id);
-		
-		return (T) query.uniqueResult();
-	}
+    @Autowired
+    public AbstractHibernateDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+        entityClass = getEntityClass();
+    }
 
-	@Override
-	public List<T> findAll() {
-		
-		LOG.info("Finding all " + entityClass.getName() + " objects...");
-		
-		Session session = currentSession();
-		
-		Query query = session.createQuery("from " + entityClass.getName());
-		
-		return query.list();
-	}
-	
-	private Class getEntityClass() {
+    protected Session currentSession() {
+
+        return sessionFactory.getCurrentSession();
+    }
+
+    @Override
+    public void save(T entity) {
+
+        currentSession().save(entity);
+    }
+
+    public T findById(K id) {
+
+        LOG.info("Finding " + entityClass.getName() + " by id " + id);
+        Session session = currentSession();
+
+        Query query = session.createQuery("from " + entityClass.getName()
+                + " where id = " + id);
+
+        return (T) query.uniqueResult();
+    }
+
+    @Override
+    public List<T> findAll() {
+
+        LOG.info("Finding all " + entityClass.getName() + " objects...");
+
+        Session session = currentSession();
+
+        Query query = session.createQuery("from " + entityClass.getName());
+
+        return query.list();
+    }
+
+    private Class getEntityClass() {
 
         final Type genType = getClass().getGenericSuperclass();
         if (genType instanceof ParameterizedType) {

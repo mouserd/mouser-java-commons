@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface CompanyDao {
 
-	List<Company> findAll();
+    List<Company> findAll();
 }

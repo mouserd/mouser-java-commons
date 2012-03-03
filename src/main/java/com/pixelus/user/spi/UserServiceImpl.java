@@ -10,11 +10,11 @@ import com.pixelus.user.UserService;
 
 @Service
 public class UserServiceImpl
-	extends AbstractServiceImpl<User, Long>
-	implements UserService {
+        extends AbstractServiceImpl<User, Long>
+        implements UserService {
 
-	@Autowired
-	public UserServiceImpl(UserDao dao) {
-		super(dao);
-	}
+    @Autowired
+    public UserServiceImpl(UserDao dao) {
+        super(dao);
+    }
 }

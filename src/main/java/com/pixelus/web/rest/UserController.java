@@ -15,25 +15,24 @@ import com.pixelus.user.User;
 import com.pixelus.user.UserService;
 
 @Controller
-@RequestMapping(value="/api/user")
+@RequestMapping(value = "/api/user")
 public class UserController {
-	
-	private static final Logger LOG = Logger.getLogger(UserController.class);
 
-	private UserService userService;
-	
-	@Autowired
-	public UserController(UserService userService) {
-		
-		this.userService = userService;
-	}
-	
-	
-	
-	@RequestMapping(value = "/{id}.json", method = RequestMethod.GET)
-	public @ResponseBody User getUserDetails(@PathVariable Long id) {
-		
-		LOG.info("Getting user details for user id: " + id);
-		return userService.findById(id);
-	}
+    private static final Logger LOG = Logger.getLogger(UserController.class);
+
+    private UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+
+        this.userService = userService;
+    }
+
+    @RequestMapping(value = "/{id}.json", method = RequestMethod.GET)
+    public @ResponseBody
+    User getUserDetails(@PathVariable Long id) {
+
+        LOG.info("Getting user details for user id: " + id);
+        return userService.findById(id);
+    }
 }

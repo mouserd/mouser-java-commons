@@ -9,13 +9,13 @@ import com.pixelus.company.CompanyDao;
 import com.pixelus.spi.AbstractHibernateDaoImpl;
 
 @Repository
-public class CompanyDaoHibernateImpl 
-	extends AbstractHibernateDaoImpl<Company, Long>
-	implements CompanyDao {
+public class CompanyDaoHibernateImpl
+        extends AbstractHibernateDaoImpl<Company, Long>
+        implements CompanyDao {
 
-	@Autowired
-	public CompanyDaoHibernateImpl(SessionFactory sessionFactory) {
-		
-		super(sessionFactory);
-	}
+    @Autowired
+    public CompanyDaoHibernateImpl(SessionFactory sessionFactory) {
+
+        super(sessionFactory);
+    }
 }
