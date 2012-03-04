@@ -19,10 +19,11 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
     private static final Logger LOG = Logger.getLogger(AbstractHibernateDaoImpl.class);
 
     private SessionFactory sessionFactory;
-    private Class entityClass;
+    private Class<T> entityClass;
 
+    @SuppressWarnings("unchecked")
     @Autowired
-    public AbstractHibernateDaoImpl(SessionFactory sessionFactory) {
+    public AbstractHibernateDaoImpl(final SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
         entityClass = getEntityClass();
     }
@@ -33,12 +34,15 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
     }
 
     @Override
-    public void save(T entity) {
+    public void save(final T entity) {
 
-        currentSession().save(entity);
+        Session session = currentSession();
+        session.save(entity);
+        session.flush();
     }
 
-    public T findById(K id) {
+    @SuppressWarnings("unchecked")
+    public T findById(final K id) {
 
         LOG.info("Finding " + entityClass.getName() + " by id " + id);
         Session session = currentSession();
@@ -49,6 +53,7 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
         return (T) query.uniqueResult();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<T> findAll() {
 
@@ -58,9 +63,10 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
 
         Query query = session.createQuery("from " + entityClass.getName());
 
-        return query.list();
+        return (List<T>) query.list();
     }
 
+    @SuppressWarnings("rawtypes")
     private Class getEntityClass() {
 
         final Type genType = getClass().getGenericSuperclass();
@@ -76,5 +82,4 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
 
         return null;
     }
-
 }

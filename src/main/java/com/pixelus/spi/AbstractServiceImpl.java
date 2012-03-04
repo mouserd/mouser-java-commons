@@ -3,15 +3,15 @@ package com.pixelus.spi;
 import java.util.List;
 
 import com.pixelus.Dao;
-import com.pixelus.Service;
 import com.pixelus.ModelEntity;
+import com.pixelus.Service;
 
 public class AbstractServiceImpl<T extends ModelEntity<?>, K>
         implements Service<T, K> {
 
     private Dao<T, K> dao;
 
-    public AbstractServiceImpl(Dao<T, K> dao) {
+    public AbstractServiceImpl(final Dao<T, K> dao) {
 
         this.dao = dao;
     }
@@ -23,7 +23,7 @@ public class AbstractServiceImpl<T extends ModelEntity<?>, K>
     }
 
     @Override
-    public T findById(K id) {
+    public T findById(final K id) {
 
         return dao.findById(id);
     }

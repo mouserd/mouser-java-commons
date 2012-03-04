@@ -14,7 +14,7 @@ public class UserDaoHibernateImpl
         implements UserDao {
 
     @Autowired
-    public UserDaoHibernateImpl(SessionFactory sessionFactory) {
+    public UserDaoHibernateImpl(final SessionFactory sessionFactory) {
         super(sessionFactory);
     }
 }

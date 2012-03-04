@@ -39,7 +39,7 @@ public class User
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -47,17 +47,15 @@ public class User
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
     public String getSurname() {
-
         return surname;
     }
 
-    public void setSurname(String surname) {
-
+    public void setSurname(final String surname) {
         this.surname = surname;
     }
 
@@ -65,7 +63,7 @@ public class User
         return company;
     }
 
-    public void setCompany(Company company) {
+    public void setCompany(final Company company) {
         this.company = company;
     }
 }

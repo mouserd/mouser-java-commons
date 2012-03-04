@@ -14,7 +14,7 @@ public class UserServiceImpl
         implements UserService {
 
     @Autowired
-    public UserServiceImpl(UserDao dao) {
+    public UserServiceImpl(final UserDao dao) {
         super(dao);
     }
 }

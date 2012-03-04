@@ -1,8 +1,5 @@
 package com.pixelus.web.rest;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,14 +20,14 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(final UserService userService) {
 
         this.userService = userService;
     }
 
     @RequestMapping(value = "/{id}.json", method = RequestMethod.GET)
-    public @ResponseBody
-    User getUserDetails(@PathVariable Long id) {
+    @ResponseBody
+    public User getUserDetails(@PathVariable final Long id) {
 
         LOG.info("Getting user details for user id: " + id);
         return userService.findById(id);

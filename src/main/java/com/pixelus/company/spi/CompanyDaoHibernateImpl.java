@@ -14,7 +14,7 @@ public class CompanyDaoHibernateImpl
         implements CompanyDao {
 
     @Autowired
-    public CompanyDaoHibernateImpl(SessionFactory sessionFactory) {
+    public CompanyDaoHibernateImpl(final SessionFactory sessionFactory) {
 
         super(sessionFactory);
     }
