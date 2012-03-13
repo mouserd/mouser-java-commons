@@ -4,13 +4,12 @@
  * Should you wish to use or enquire about any of the content contained please contact
  * David Mouser (david.mouser@gmail.com).
  */
-package com.pixelus;
 
-import java.util.List;
+package com.pixelus.entity;
 
-public interface Service<T extends ModelEntity<?>, K> {
+public interface ModelEntity<K> {
 
-    List<T> findAll();
+    K getId();
 
-    T findById(K id);
+    void setId(K id);
 }

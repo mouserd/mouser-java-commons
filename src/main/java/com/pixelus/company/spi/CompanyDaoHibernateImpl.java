@@ -4,15 +4,14 @@
  * Should you wish to use or enquire about any of the content contained please contact
  * David Mouser (david.mouser@gmail.com).
  */
-package com.pixelus.company.spi;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+package com.pixelus.company.spi;
 
 import com.pixelus.company.Company;
 import com.pixelus.company.CompanyDao;
-import com.pixelus.spi.AbstractHibernateDaoImpl;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public class CompanyDaoHibernateImpl

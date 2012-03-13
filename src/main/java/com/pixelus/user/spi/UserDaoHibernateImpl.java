@@ -4,15 +4,15 @@
  * Should you wish to use or enquire about any of the content contained please contact
  * David Mouser (david.mouser@gmail.com).
  */
+
 package com.pixelus.user.spi;
 
+import com.pixelus.db.AbstractHibernateDaoImpl;
 import com.pixelus.user.User;
+import com.pixelus.user.UserDao;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.pixelus.spi.AbstractHibernateDaoImpl;
-import com.pixelus.user.UserDao;
 
 @Repository
 public class UserDaoHibernateImpl

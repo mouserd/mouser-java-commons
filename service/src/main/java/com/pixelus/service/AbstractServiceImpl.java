@@ -4,13 +4,13 @@
  * Should you wish to use or enquire about any of the content contained please contact
  * David Mouser (david.mouser@gmail.com).
  */
-package com.pixelus.spi;
+
+package com.pixelus.service;
+
+import com.pixelus.db.Dao;
+import com.pixelus.entity.ModelEntity;
 
 import java.util.List;
-
-import com.pixelus.Dao;
-import com.pixelus.ModelEntity;
-import com.pixelus.Service;
 
 public class AbstractServiceImpl<T extends ModelEntity<?>, K>
         implements Service<T, K> {

@@ -4,15 +4,17 @@
  * Should you wish to use or enquire about any of the content contained please contact
  * David Mouser (david.mouser@gmail.com).
  */
-package com.pixelus;
+
+package com.pixelus.service;
+
+
+import com.pixelus.entity.ModelEntity;
 
 import java.util.List;
 
-public interface Dao<T extends ModelEntity<?>, K> {
-
-    void save(T entity);
-
-    T findById(K id);
+public interface Service<T extends ModelEntity<?>, K> {
 
     List<T> findAll();
+
+    T findById(K id);
 }
