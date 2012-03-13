@@ -1,11 +1,11 @@
 package com.pixelus.user.spi;
 
+import com.pixelus.user.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pixelus.spi.AbstractHibernateDaoImpl;
-import com.pixelus.user.User;
 import com.pixelus.user.UserDao;
 
 @Repository

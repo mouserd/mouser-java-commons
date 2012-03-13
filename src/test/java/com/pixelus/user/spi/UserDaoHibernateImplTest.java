@@ -6,8 +6,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import com.pixelus.company.Company;
+import com.pixelus.user.User;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.pixelus.company.Company;
-import com.pixelus.user.User;
 import com.pixelus.user.UserDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/context-datasource-test.xml",
-        "/context-persistence.xml" })
+@ContextConfiguration(locations = { "/context-datasource-test.xml", "/context-persistence.xml" })
 public class UserDaoHibernateImplTest
         extends AbstractTransactionalJUnit4SpringContextTests {
 
@@ -40,7 +38,6 @@ public class UserDaoHibernateImplTest
     }
 
     @Test
-    @Ignore
     public void testFindUserById() {
 
         executeSqlScript("/com/pixelus/user/user.sql", false);
@@ -51,7 +48,6 @@ public class UserDaoHibernateImplTest
     }
 
     @Test
-    @Ignore
     public void testFindAllUsers() {
 
         executeSqlScript("/com/pixelus/user/user.sql", false);
@@ -74,6 +70,7 @@ public class UserDaoHibernateImplTest
 
     private User createUser() {
         final User user = new User();
+        
         user.setFirstName(TEST_FIRSTNAME);
         user.setSurname(TEST_SURNAME);
         user.setCompany(new Company(TEST_COMPANY_ID));

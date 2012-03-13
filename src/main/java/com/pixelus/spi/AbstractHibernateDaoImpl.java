@@ -29,7 +29,6 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
     }
 
     protected Session currentSession() {
-
         return sessionFactory.getCurrentSession();
     }
 
@@ -38,7 +37,7 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
 
         Session session = currentSession();
         session.save(entity);
-        session.flush();
+        //session.flush();
     }
 
     @SuppressWarnings("unchecked")
@@ -66,7 +65,6 @@ public class AbstractHibernateDaoImpl<T extends ModelEntity<?>, K>
         return (List<T>) query.list();
     }
 
-    @SuppressWarnings("rawtypes")
     private Class getEntityClass() {
 
         final Type genType = getClass().getGenericSuperclass();

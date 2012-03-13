@@ -125,7 +125,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${pmd.version}</version>
                 <configuration>
-                    <configLocation>../pmd.xml</configLocation>
+                    <configLocation>pmd.xml</configLocation>
                     <targetJdk>${java.version}</targetJdk>
                 </configuration>
             </plugin>
@@ -217,7 +217,7 @@
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
 			<version>2.2.4</version>
-			<scope>test</scope>
+			<!--<scope>test</scope>-->
 		</dependency>
 
 		<dependency>

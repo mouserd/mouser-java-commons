@@ -1,10 +1,10 @@
 package com.pixelus.user.spi;
 
+import com.pixelus.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pixelus.spi.AbstractServiceImpl;
-import com.pixelus.user.User;
 import com.pixelus.user.UserDao;
 import com.pixelus.user.UserService;
 
