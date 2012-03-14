@@ -5,11 +5,12 @@
  * David Mouser (david.mouser@gmail.com).
  */
 
-package com.pixelus.entity;
+package com.pixelus.service;
 
-public interface ModelEntity<T> {
+import com.pixelus.entity.User;
+import com.pixelus.service.Service;
 
-    T getId();
+public interface UserService
+      extends Service<User, Long> {
 
-    void setId(T id);
 }

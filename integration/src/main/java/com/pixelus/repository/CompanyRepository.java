@@ -5,11 +5,13 @@
  * David Mouser (david.mouser@gmail.com).
  */
 
-package com.pixelus.entity;
+package com.pixelus.repository;
 
-public interface ModelEntity<T> {
+import com.pixelus.entity.Company;
 
-    T getId();
+import java.util.List;
 
-    void setId(T id);
+public interface CompanyRepository {
+
+    List<Company> findAll();
 }

@@ -7,31 +7,31 @@
 
 package com.pixelus.service;
 
-import com.pixelus.db.Dao;
+import com.pixelus.repository.Repository;
 import com.pixelus.entity.ModelEntity;
 
 import java.util.List;
 
 public class AbstractServiceImpl<T extends ModelEntity<?>, K>
-        implements Service<T, K> {
+      implements Service<T, K> {
 
-    private Dao<T, K> dao;
+    private Repository<T, K> repository;
 
-    public AbstractServiceImpl(final Dao<T, K> dao) {
+    public AbstractServiceImpl(final Repository<T, K> repository) {
 
-        this.dao = dao;
+        this.repository = repository;
     }
 
     @Override
     public List<T> findAll() {
 
-        return dao.findAll();
+        return repository.findAll();
     }
 
     @Override
     public T findById(final K id) {
 
-        return dao.findById(id);
+        return repository.findById(id);
     }
 
 }

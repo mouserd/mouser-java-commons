@@ -5,11 +5,17 @@
  * David Mouser (david.mouser@gmail.com).
  */
 
-package com.pixelus.entity;
+package com.pixelus.repository;
 
-public interface ModelEntity<T> {
+import com.pixelus.entity.ModelEntity;
 
-    T getId();
+import java.util.List;
 
-    void setId(T id);
+public interface Repository<T extends ModelEntity<?>, K> {
+
+    void save(T entity);
+
+    T findById(K id);
+
+    List<T> findAll();
 }
