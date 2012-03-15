@@ -1,7 +1,7 @@
 # Compiled source #
 ###################
 */target/**
-*/.idea/**
+*/\.idea/**
 /reports
 /target
 *.iml
