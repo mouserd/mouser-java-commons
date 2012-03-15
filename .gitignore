@@ -2,6 +2,7 @@
 ###################
 */target/**
 .idea/**
+.settings/**
 /reports
 /target
 *.iml
