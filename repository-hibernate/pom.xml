@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ This source code is copyright (c) 2012 Pixelus Consulting Pty Ltd.  All rights reserved.
+  ~
+  ~ Should you wish to use or enquire about any of the content contained please contact
+  ~ David Mouser (david.mouser@gmail.com).
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>build</artifactId>
+        <groupId>com.pixelus</groupId>
+        <version>0.0.1</version>
+        <relativePath>../build/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>repository-hibernate</artifactId>
+    <name>Repository (Hibernate)</name>
+
+    <build>
+        <finalName>repository-hibernate</finalName>
+
+        <!-- PLUGINS -->
+        <plugins/>
+    </build>
+
+    <dependencies>
+        <!-- MODULE SPECIFIC DEPENDENCIES -->
+        <dependency>
+            <groupId>com.pixelus</groupId>
+            <artifactId>model</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pixelus</groupId>
+            <artifactId>repository</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate</artifactId>
+            <version>3.2.6.ga</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.transaction</groupId>
+                    <artifactId>jta</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-annotations</artifactId>
+            <version>3.4.0.GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <version>3.1.0.GA</version>
+        </dependency>
+    </dependencies>
+
+    <!-- PROPERTIES -->
+    <properties/>
+</project>

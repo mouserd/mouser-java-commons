@@ -1,5 +1,9 @@
 # Compiled source #
 ###################
-target/**
+*/target/**
+*/.idea/**
 /reports
 /target
+*.iml
+*.jar
+*.war
