@@ -17,6 +17,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <name>Web Application</name>
     <artifactId>web</artifactId>
     <packaging>war</packaging>
 
