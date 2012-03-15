@@ -18,7 +18,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, K>
+public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, K>
       implements Repository<T, K> {
 
     private static final Logger LOG = Logger.getLogger(AbstractHibernateRepositoryImpl.class);
@@ -34,7 +34,7 @@ public class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, K>
         entityClass = getEntityClass();
     }
 
-    protected Session currentSession() {
+    protected Session getCurrentSession() {
 
         return sessionFactory.getCurrentSession();
     }
@@ -42,15 +42,33 @@ public class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, K>
     @Override
     public void save(final T entity) {
 
-        Session session = currentSession();
+        LOG.debug("Creating " + entityClass.getName() + " (id: " + entity.getId() + ")");
+        Session session = getCurrentSession();
         session.save(entity);
     }
+
+    @Override
+    public void update(T entity) {
+
+        LOG.debug("Updating " + entityClass.getName() + " (id: " + entity.getId() + ")");
+        Session session = getCurrentSession();
+        session.update(entity);
+    }
+
+    @Override
+    public void delete(T entity) {
+
+        LOG.debug("Deleting " + entityClass.getName() + " (id: " + entity.getId() + ")");
+        Session session = getCurrentSession();
+        session.delete(entity);
+    }
+
 
     @SuppressWarnings("unchecked")
     public T findById(final K id) {
 
-        LOG.info("Finding " + entityClass.getName() + " by id " + id);
-        Session session = currentSession();
+        LOG.debug("Finding " + entityClass.getName() + " by id (id: " + id + ")");
+        Session session = getCurrentSession();
 
         Query query = session.createQuery("from " + entityClass.getName()
               + " where id = " + id);
@@ -62,10 +80,9 @@ public class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, K>
     @Override
     public List<T> findAll() {
 
-        LOG.info("Finding all " + entityClass.getName() + " objects...");
+        LOG.debug("Finding all " + entityClass.getName() +"'s");
 
-        Session session = currentSession();
-
+        Session session = getCurrentSession();
         Query query = session.createQuery("from " + entityClass.getName());
 
         return (List<T>) query.list();

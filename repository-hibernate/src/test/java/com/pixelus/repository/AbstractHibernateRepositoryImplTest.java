@@ -59,14 +59,30 @@ public class AbstractHibernateRepositoryImplTest {
     }
 
     @Test
-    public void repositorySaveShouldCallSessionSave() {
+    public void saveShouldCallSessionSave() {
 
         repository.save(entity);
         verify(session).save(entity);
     }
 
     @Test
-    public void repositoryFindByIdShouldQueryById()
+    public void updateShouldCallSessionUpdate()
+          throws Exception {
+
+        repository.update(entity);
+        verify(session).update(entity);
+    }
+
+    @Test
+    public void deleteShouldCallSessionDelete()
+          throws Exception {
+
+        repository.delete(entity);
+        verify(session).delete(entity);
+    }
+
+    @Test
+    public void findByIdShouldQueryById()
           throws Exception {
 
         Query query = mock(Query.class);

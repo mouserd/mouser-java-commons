@@ -7,8 +7,11 @@
 
 package com.pixelus.repository.spi;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -16,6 +19,7 @@ import java.util.List;
 import com.pixelus.entity.Company;
 import com.pixelus.entity.User;
 import com.pixelus.repository.UserRepository;
+import org.hibernate.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,16 +41,18 @@ public class UserRepositoryHibernateImplTest
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private SessionFactory sessionFactory;
+
     @Before
     public void setup() {
 
         executeSqlScript("/com/pixelus/company/company.sql", false);
+        executeSqlScript("/com/pixelus/user/user.sql", false);
     }
 
     @Test
-    public void testFindUserById() {
-
-        executeSqlScript("/com/pixelus/user/user.sql", false);
+    public void findUserByIdShouldFindUser() {
 
         User user = userRepository.findById(TEST_USER_ID);
 
@@ -54,9 +60,9 @@ public class UserRepositoryHibernateImplTest
     }
 
     @Test
-    public void testFindAllUsers() {
+    public void findAllUsersShouldFindUsers() {
 
-        executeSqlScript("/com/pixelus/user/user.sql", false);
+//        executeSqlScript("/com/pixelus/user/user.sql", false);
 
         List<User> users = userRepository.findAll();
 
@@ -64,14 +70,48 @@ public class UserRepositoryHibernateImplTest
     }
 
     @Test
-    public void testSaveUserShouldInsertRow() {
+    public void saveUserShouldCreateNewUser() {
 
         int numUsers = userRepository.findAll().size();
 
         final User user = createUser();
         userRepository.save(user);
 
+        // Explicitly flush the session to ensure it's not being cached!
+        sessionFactory.getCurrentSession().flush();
+
         assertEquals(userRepository.findAll().size(), numUsers + 1);
+    }
+
+    @Test
+    public void updateUserShouldUpdateExistingUser()
+          throws Exception {
+
+        User user = userRepository.findById(TEST_USER_ID);
+        user.setFirstName(user.getFirstName() + " - UPDATED");
+
+        userRepository.update(user);
+
+        // Explicitly flush the session to ensure it's not being cached!
+        sessionFactory.getCurrentSession().flush();
+
+        User updatedUser = userRepository.findById(TEST_USER_ID);
+        assertThat(updatedUser.getFirstName(), is(user.getFirstName()));
+    }
+
+    @Test
+    public void deleteShouldDeleteExistingUser()
+          throws Exception {
+        
+        User user = userRepository.findById(TEST_USER_ID);
+        assertNotNull(user);
+        userRepository.delete(user);
+
+        // Explicitly flush the session to ensure it's not being cached!
+        sessionFactory.getCurrentSession().flush();
+        
+        user = userRepository.findById(TEST_USER_ID);
+        assertNull(user);
     }
 
     private User createUser() {
