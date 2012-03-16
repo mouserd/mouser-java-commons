@@ -29,6 +29,20 @@
         <module>web</module>
     </modules>
 
+    <ciManagement>
+        <system>hudson</system>
+        <url>http://localhost:8085/</url>
+    </ciManagement>
+
+    <developers>
+        <developer>
+            <name>David Mouser</name>
+            <email>david.mouser@gmail.com</email>
+            <organization>Pixelus Consulting</organization>
+            <organizationUrl>http://www.pixelus.com.au/</organizationUrl>
+        </developer>
+    </developers>
+
     <!--<repositories>-->
     <!--<repository>-->
     <!--<id>JBoss Repo</id>-->
