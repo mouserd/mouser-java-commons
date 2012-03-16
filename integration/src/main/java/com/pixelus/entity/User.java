@@ -39,12 +39,14 @@ public class User
     @JoinColumn(name = "COMPANY_ID")
     private Company company;
 
-    public Long getId() {
+    @Override
+    public final Long getId() {
 
         return id;
     }
 
-    public void setId(final Long id) {
+    @Override
+    public final void setId(final Long id) {
 
         this.id = id;
     }

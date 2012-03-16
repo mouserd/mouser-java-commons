@@ -34,13 +34,9 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
         entityClass = getEntityClass();
     }
 
-    protected Session getCurrentSession() {
-
-        return sessionFactory.getCurrentSession();
-    }
 
     @Override
-    public void save(final T entity) {
+    public final void save(final T entity) {
 
         LOG.debug("Creating " + entityClass.getName() + " (id: " + entity.getId() + ")");
         Session session = getCurrentSession();
@@ -48,7 +44,7 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
     }
 
     @Override
-    public void update(T entity) {
+    public final void update(T entity) {
 
         LOG.debug("Updating " + entityClass.getName() + " (id: " + entity.getId() + ")");
         Session session = getCurrentSession();
@@ -56,7 +52,7 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
     }
 
     @Override
-    public void delete(T entity) {
+    public final void delete(T entity) {
 
         LOG.debug("Deleting " + entityClass.getName() + " (id: " + entity.getId() + ")");
         Session session = getCurrentSession();
@@ -65,7 +61,7 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
 
 
     @SuppressWarnings("unchecked")
-    public T findById(final K id) {
+    public final T findById(final K id) {
 
         LOG.debug("Finding " + entityClass.getName() + " by id (id: " + id + ")");
         Session session = getCurrentSession();
@@ -78,7 +74,7 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<T> findAll() {
+    public final List<T> findAll() {
 
         LOG.debug("Finding all " + entityClass.getName() +"'s");
 
@@ -86,6 +82,11 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
         Query query = session.createQuery("from " + entityClass.getName());
 
         return (List<T>) query.list();
+    }
+
+    protected final Session getCurrentSession() {
+
+        return sessionFactory.getCurrentSession();
     }
 
     private Class getEntityClass() {

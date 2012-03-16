@@ -23,15 +23,14 @@ public class AbstractServiceImpl<T extends ModelEntity<?>, K>
     }
 
     @Override
-    public List<T> findAll() {
+    public final List<T> findAll() {
 
         return repository.findAll();
     }
 
     @Override
-    public T findById(final K id) {
+    public final T findById(final K id) {
 
         return repository.findById(id);
     }
-
 }

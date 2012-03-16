@@ -9,7 +9,6 @@ package com.pixelus.web.rest;
 
 import com.pixelus.entity.User;
 import com.pixelus.service.UserService;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +35,7 @@ public class UserController {
 
     @RequestMapping(value = "/{id}.json", method = GET)
     @ResponseBody
-    public User getUserDetails(@PathVariable final Long id) {
+    public final User getUserDetails(@PathVariable final Long id) {
 
         LOG.info("Getting user details for user id: " + id);
         return userService.findById(id);

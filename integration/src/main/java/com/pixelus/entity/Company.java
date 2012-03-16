@@ -37,13 +37,13 @@ public class Company
     }
 
     @Override
-    public Long getId() {
+    public final Long getId() {
 
         return id;
     }
 
     @Override
-    public void setId(final Long id) {
+    public final void setId(final Long id) {
 
         this.id = id;
     }
