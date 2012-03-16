@@ -44,6 +44,11 @@
             </plugin>
 
             <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.0</version>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.6</version>
@@ -151,6 +156,11 @@
     <reporting>
         <outputDirectory>${basedir}/target/site</outputDirectory>
         <plugins>
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.0</version>
+            </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
@@ -267,7 +277,7 @@
         <java.version>1.6</java.version>
 
         <checkstyle.version>2.6</checkstyle.version>
-        <findbugs.version>2.3.2</findbugs.version>
+        <findbugs.version>2.4.0</findbugs.version>
         <pmd.version>2.5</pmd.version>
     </properties>
 </project>
