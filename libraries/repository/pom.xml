@@ -18,6 +18,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>repository</artifactId>
+    <groupId>com.pixelus</groupId>
+    <version>0.0.2-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>Repository</name>
 
     <build>
@@ -32,7 +35,7 @@
         <dependency>
             <groupId>com.pixelus</groupId>
             <artifactId>model</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.2-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
