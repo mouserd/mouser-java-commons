@@ -22,7 +22,8 @@ import java.util.List;
 public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, K>
       implements Repository<T, K> {
 
-    private static final Logger LOG = Logger.getLogger(AbstractHibernateRepositoryImpl.class);
+    private static final Logger LOG =
+          Logger.getLogger(AbstractHibernateRepositoryImpl.class);
 
     private SessionFactory sessionFactory;
     private Class<T> entityClass;
@@ -77,7 +78,7 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
     @Override
     public final List<T> findAll() {
 
-        LOG.debug("Finding all " + entityClass.getName() +"'s");
+        LOG.debug("Finding all " + entityClass.getName() + "'s");
 
         Session session = getCurrentSession();
         Query query = session.createQuery("from " + entityClass.getName());

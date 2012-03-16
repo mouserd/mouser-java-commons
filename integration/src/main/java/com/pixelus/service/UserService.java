@@ -9,7 +9,6 @@
 package com.pixelus.service;
 
 import com.pixelus.entity.User;
-import com.pixelus.service.Service;
 
 public interface UserService
       extends Service<User, Long> {

@@ -12,7 +12,7 @@
     <property name="severity" value="warning"/>
     <module name="TreeWalker">
         <module name="ConstantName"/>
-        <module name="LocalFinalVariableName"/>
+        <!--<module name="LocalFinalVariableName"/>-->
         <module name="LocalVariableName"/>
         <module name="MemberName"/>
         <module name="MethodName"/>
@@ -70,13 +70,13 @@
         <module name="InterfaceIsType"/>
         <module name="VisibilityModifier"/>
         <module name="ArrayTypeStyle"/>
-        <module name="FinalParameters"/>
+        <!--<module name="FinalParameters"/>-->
         <module name="TodoComment"/>
         <module name="UpperEll"/>
         <module name="DeclarationOrder"/>
-        <module name="FinalLocalVariable">
-            <property name="tokens" value="PARAMETER_DEF,VARIABLE_DEF"/>
-        </module>
+        <!--<module name="FinalLocalVariable">-->
+            <!--<property name="tokens" value="PARAMETER_DEF,VARIABLE_DEF"/>-->
+        <!--</module>-->
         <module name="IllegalCatch"/>
         <module name="IllegalThrows"/>
         <module name="JUnitTestCase"/>

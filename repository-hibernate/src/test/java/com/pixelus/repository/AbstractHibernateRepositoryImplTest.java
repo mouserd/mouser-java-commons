@@ -5,13 +5,7 @@
  * Should you wish to use or enquire about any of the content contained please
  * contact David Mouser (david.mouser@gmail.com).
  */
-
-package com.pixelus.repository;/*
- * This source code is copyright (c) 2012 Pixelus Consulting Pty Ltd.  All rights reserved.
- *
- * Should you wish to use or enquire about any of the content contained please contact
- * David Mouser (david.mouser@gmail.com).
- */
+package com.pixelus.repository;
 
 /**
  * @author David Mouser
@@ -87,8 +81,8 @@ public class AbstractHibernateRepositoryImplTest {
           throws Exception {
 
         Query query = mock(Query.class);
-        when(session.createQuery("from " + entity.getClass().getName() + " where id = " +
-              "1")).thenReturn(query);
+        when(session.createQuery("from " + entity.getClass().getName() + " where id = "
+              + "1")).thenReturn(query);
         when(query.uniqueResult()).thenReturn(entity);
 
         StubEntity returnedEntity = repository.findById(1L);

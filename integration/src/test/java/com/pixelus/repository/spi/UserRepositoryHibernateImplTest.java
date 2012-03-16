@@ -26,11 +26,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import
+  org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/context-datasource-test.xml", "/context-persistence.xml"})
+@ContextConfiguration(locations = {"/context-datasource-test.xml",
+      "/context-persistence.xml" })
 public class UserRepositoryHibernateImplTest
       extends AbstractTransactionalJUnit4SpringContextTests {
 
@@ -46,7 +48,7 @@ public class UserRepositoryHibernateImplTest
     private SessionFactory sessionFactory;
 
     @Before
-    public void setup() {
+    public void setUp() {
 
         executeSqlScript("/com/pixelus/company/company.sql", false);
         executeSqlScript("/com/pixelus/user/user.sql", false);
