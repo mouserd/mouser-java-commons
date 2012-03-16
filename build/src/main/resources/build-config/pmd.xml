@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This source code is copyright (c) 2012 Pixelus Consulting Pty Ltd.  All
+  ~ rights reserved.
+  ~
+  ~ Should you wish to use or enquire about any of the content contained please
+  ~ contact David Mouser (david.mouser@gmail.com).
+  -->
+
 <ruleset xmlns="http://pmd.sf.net/ruleset/1.0.0" name="PixelusConsultingPMDRules" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd" xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
 <description>Pixelus Consulting PMD rule set</description>
 <rule ref="rulesets/logging-jakarta-commons.xml/UseCorrectExceptionLogging"/>
