@@ -24,6 +24,7 @@
 
     <modules>
         <module>build</module>
+        <module>test-utils</module>
         <module>libraries</module>
         <module>repository-hibernate</module>
         <module>integration</module>
