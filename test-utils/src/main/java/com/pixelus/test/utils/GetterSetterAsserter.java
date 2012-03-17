@@ -97,8 +97,8 @@ public class GetterSetterAsserter {
     /**
      * Add the given type for the Map of supported-types.
      *
-     * @param type The Class type to add.
-     * @parm value The value of the given type to use during the test.
+     * @param type  The Class type to add.
+     * @param value The value of the given type to use during the test.
      */
     @SuppressWarnings("unchecked")
     public void addSupportedType(final Class type, final Object value) {
@@ -223,6 +223,7 @@ public class GetterSetterAsserter {
      *
      * @param target   The object test getters and setters for.
      * @param property The single property getter/setter to test.
+     * @param argument The argument to test against.
      * @see GetterSetterAsserter#addSupportedType(Class, Object)
      * @see GetterSetterAsserter#removeSupportedType(Class)
      */
@@ -278,7 +279,7 @@ public class GetterSetterAsserter {
             if ((setterArg != null) && (setterArg.getClass() == Object.class)) {
 
                 System.err.println("Property '" + property + "' not tested as "
-                      + "return/parameter type is an Object [possiblly due to generics]");
+                      + "return/parameter type is an Object [possibly due to generics]");
                 return;
             }
 

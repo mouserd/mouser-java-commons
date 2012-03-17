@@ -8,15 +8,6 @@
 
 package com.pixelus.repository.spi;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
 import com.pixelus.entity.Company;
 import com.pixelus.entity.User;
 import com.pixelus.repository.UserRepository;
@@ -26,18 +17,26 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import
-  org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/context-datasource-test.xml",
-      "/context-persistence.xml" })
+      "/context-persistence.xml"})
 public class UserRepositoryHibernateImplTest
       extends AbstractTransactionalJUnit4SpringContextTests {
 
     private static final Long TEST_USER_ID = 1L;
-    private static final String TEST_SURNAME = "Bennet";
+    private static final String TEST_SURNAME = "Benet";
     private static final String TEST_FIRSTNAME = "David";
     private static final Long TEST_COMPANY_ID = 1L;
 
@@ -105,14 +104,14 @@ public class UserRepositoryHibernateImplTest
     @Test
     public void deleteShouldDeleteExistingUser()
           throws Exception {
-        
+
         User user = userRepository.findById(TEST_USER_ID);
         assertNotNull(user);
         userRepository.delete(user);
 
         // Explicitly flush the session to ensure it's not being cached!
         sessionFactory.getCurrentSession().flush();
-        
+
         user = userRepository.findById(TEST_USER_ID);
         assertNull(user);
     }
