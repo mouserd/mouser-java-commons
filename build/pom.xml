@@ -180,7 +180,6 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${pmd.version}</version>
                 <configuration>
-                    <rulesets>pmd.xml</rulesets>
                     <targetJdk>${java.version}</targetJdk>
                 </configuration>
             </plugin>
