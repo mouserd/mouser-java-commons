@@ -36,7 +36,7 @@ public class UserRepositoryHibernateImplTest
       extends AbstractTransactionalJUnit4SpringContextTests {
 
     private static final Long TEST_USER_ID = 1L;
-    private static final String TEST_SURNAME = "Benetér";
+    private static final String TEST_SURNAME = "Bon";
     private static final String TEST_FIRSTNAME = "David";
     private static final Long TEST_COMPANY_ID = 1L;
 

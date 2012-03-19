@@ -59,7 +59,7 @@ public class GetterSetterAsserter {
      * add/remove these using the relevant methods.
      */
     @SuppressWarnings("unchecked")
-    private final HashMap<Class, Object> supportedClassTypes;
+    private final Map supportedClassTypes;
 
     /**
      * Default Constructor.
