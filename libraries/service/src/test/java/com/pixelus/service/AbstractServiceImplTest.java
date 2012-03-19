@@ -8,6 +8,7 @@
 
 package com.pixelus.service;
 
+import com.pixelus.entity.ModelEntity;
 import com.pixelus.repository.Repository;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +33,8 @@ public class AbstractServiceImplTest {
     @Before
     public void setUp() {
 
-        abstractService = new AbstractServiceImpl(repository);
+        abstractService = new AbstractServiceImpl<ModelEntity<String>,
+              String>(repository);
     }
 
     @Test
