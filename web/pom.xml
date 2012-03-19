@@ -65,18 +65,6 @@
         <!-- MODULE SPECIFIC DEPENDENCIES -->
         <dependency>
             <groupId>com.pixelus</groupId>
-            <artifactId>repository-hibernate</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.pixelus</groupId>
-            <artifactId>model</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.pixelus</groupId>
             <artifactId>service</artifactId>
             <version>0.0.2-SNAPSHOT</version>
         </dependency>

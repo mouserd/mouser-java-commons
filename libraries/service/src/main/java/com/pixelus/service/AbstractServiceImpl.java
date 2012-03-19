@@ -8,15 +8,15 @@
 
 package com.pixelus.service;
 
-import com.pixelus.repository.Repository;
 import com.pixelus.entity.ModelEntity;
+import com.pixelus.repository.Repository;
 
 import java.util.List;
 
 public class AbstractServiceImpl<T extends ModelEntity<?>, K>
       implements Service<T, K> {
 
-    private Repository<T, K> repository;
+    private final Repository<T, K> repository;
 
     public AbstractServiceImpl(final Repository<T, K> repository) {
 

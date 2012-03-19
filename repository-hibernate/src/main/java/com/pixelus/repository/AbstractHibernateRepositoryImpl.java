@@ -25,8 +25,8 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
     private static final Logger LOG =
           Logger.getLogger(AbstractHibernateRepositoryImpl.class);
 
-    private SessionFactory sessionFactory;
-    private Class<T> entityClass;
+    private final SessionFactory sessionFactory;
+    private final Class<T> entityClass;
 
     @SuppressWarnings("unchecked")
     @Autowired
