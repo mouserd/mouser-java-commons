@@ -25,7 +25,7 @@
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
         <module name="LineLength">
-            <property name="max" value="90"/>
+            <property name="max" value="100"/>
             <property name="tabWidth" value="4"/>
         </module>
         <module name="MethodLength"/>

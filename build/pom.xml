@@ -142,8 +142,7 @@
                     <xmlOutput>true</xmlOutput>
                     <threshold>Normal</threshold>
                     <effort>Default</effort>
-                    <excludeFilterFile>build-config/findbugs-exclude.xml
-                    </excludeFilterFile>
+                    <excludeFilterFile>build-config/findbugs-exclude.xml</excludeFilterFile>
                 </configuration>
             </plugin>
 
@@ -168,11 +167,14 @@
     </build>
 
     <reporting>
-        <outputDirectory>${basedir}/target/site</outputDirectory>
+        <!--<outputDirectory>${basedir}/target/site</outputDirectory>-->
         <plugins>
             <plugin>
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.0</version>
+                <configuration>
+                    <relativizeDecorationLinks>false</relativizeDecorationLinks>
+                </configuration>
             </plugin>
 
             <plugin>
@@ -204,7 +206,7 @@
                         <format>xml</format>
                     </formats>
                     <check>
-                        <haltOnFailure>false</haltOnFailure>
+                        <haltOnFailure>true</haltOnFailure>
                         <branchRate>85</branchRate>
                         <lineRate>85</lineRate>
                         <haltOnFailure>false</haltOnFailure>
@@ -225,8 +227,7 @@
                     <xmlOutput>true</xmlOutput>
                     <threshold>Normal</threshold>
                     <effort>Default</effort>
-                    <excludeFilterFile>build-config/findbugs-exclude.xml
-                    </excludeFilterFile>
+                    <excludeFilterFile>build-config/findbugs-exclude.xml</excludeFilterFile>
                 </configuration>
             </plugin>
 
