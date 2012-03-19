@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -33,13 +34,14 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class AbstractHibernateRepositoryImplTest {
 
-    public static final String ENTITY_NAME = "Entity";
     private StubHibernateRepositoryImpl repository;
 
     @Mock
     private SessionFactory sessionFactory;
+
     @Mock
     private Session session;
+
     private StubEntity entity;
 
     @Before
@@ -104,5 +106,22 @@ public class AbstractHibernateRepositoryImplTest {
 
         assertThat(returnedEntities, is(entities));
         verify(query).list();
+    }
+
+    @Test
+    public void getEntityClassShouldReturnClassForParameterizedType()
+          throws Exception {
+
+        assertThat(repository.getEntityClass().getCanonicalName(),
+              is(StubEntity.class.getCanonicalName()));
+    }
+
+    @Test
+    public void getEntityClassShouldNotReturnClassForNonParameterizedType()
+          throws Exception {
+
+        StubInvalidHibernateRepositoryImpl repository = new
+              StubInvalidHibernateRepositoryImpl(sessionFactory);
+        assertNull(repository.getEntityClass());
     }
 }

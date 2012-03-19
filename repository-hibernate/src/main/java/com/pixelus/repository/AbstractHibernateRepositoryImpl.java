@@ -91,7 +91,7 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
         return sessionFactory.getCurrentSession();
     }
 
-    private Class getEntityClass() {
+    protected Class getEntityClass() {
 
         final Type genType = getClass().getGenericSuperclass();
         if (genType instanceof ParameterizedType) {
