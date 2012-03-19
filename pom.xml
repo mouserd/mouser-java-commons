@@ -23,6 +23,7 @@
     </description>
 
     <modules>
+        <module>build-resources</module>
         <module>build</module>
         <module>test-utils</module>
         <module>libraries</module>
