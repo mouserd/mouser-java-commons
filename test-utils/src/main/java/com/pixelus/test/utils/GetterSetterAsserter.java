@@ -12,6 +12,8 @@ package com.pixelus.test.utils;
  * @author David Mouser
  */
 
+import org.apache.log4j.Logger;
+
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
@@ -47,7 +49,10 @@ import static org.junit.Assert.fail;
  *
  * @author mouserd
  */
+@SuppressWarnings("unchecked")
 public class GetterSetterAsserter {
+
+    private static final Logger LOG = Logger.getLogger(GetterSetterAsserter.class);
 
     /**
      * Default test size used when testing primitive arrays.
@@ -58,13 +63,11 @@ public class GetterSetterAsserter {
      * The default supported class types - users of this class can
      * add/remove these using the relevant methods.
      */
-    @SuppressWarnings("unchecked")
     private final Map supportedClassTypes;
 
     /**
      * Default Constructor.
      */
-    @SuppressWarnings("unchecked")
     public GetterSetterAsserter() {
 
         supportedClassTypes = new HashMap<Class, Object>();
@@ -100,7 +103,6 @@ public class GetterSetterAsserter {
      * @param type  The Class type to add.
      * @param value The value of the given type to use during the test.
      */
-    @SuppressWarnings("unchecked")
     public void addSupportedType(final Class type, final Object value) {
 
         supportedClassTypes.put(type, value);
@@ -111,7 +113,6 @@ public class GetterSetterAsserter {
      *
      * @param type The Class type to remove.
      */
-    @SuppressWarnings("unchecked")
     public void removeSupportedType(final Class type) {
 
         supportedClassTypes.remove(type);
@@ -227,7 +228,6 @@ public class GetterSetterAsserter {
      * @see GetterSetterAsserter#addSupportedType(Class, Object)
      * @see GetterSetterAsserter#removeSupportedType(Class)
      */
-    @SuppressWarnings("unchecked")
     public void assertGetterAndSetter(final Object target,
                                       final String property, final Object argument) {
 
@@ -246,29 +246,7 @@ public class GetterSetterAsserter {
             // be tested.
             if (setterArg == null) {
 
-                if (type.isArray()) {
-
-                    setterArg = Array.newInstance(type.getComponentType(),
-                          new int[]{TEST_ARRAY_SIZE});
-
-                } else if (type.isEnum()) {
-
-                    setterArg = type.getEnumConstants()[0];
-
-                } else if (supportedClassTypes.containsKey(type)) {
-
-                    setterArg = supportedClassTypes.get(type);
-
-                } else if (!type.isInterface()) {
-
-                    // Attempt to construct a new instance of this type
-                    // using it's default constructor.
-                    final Constructor constructor = type.getDeclaredConstructor();
-
-                    // Handle private constructors.
-                    constructor.setAccessible(true);
-                    setterArg = constructor.newInstance();
-                }
+                setterArg = createSetterArgForType(type);
             }
 
             // If the class of the setter argument is deemed to be an 'Object' then
@@ -278,7 +256,7 @@ public class GetterSetterAsserter {
             // available.
             if ((setterArg != null) && (setterArg.getClass() == Object.class)) {
 
-                System.err.println("Property '" + property + "' not tested as "
+                LOG.error("Property '" + property + "' not tested as "
                       + "return/parameter type is an Object [possibly due to generics]");
                 return;
             }
@@ -317,5 +295,36 @@ public class GetterSetterAsserter {
 
             fail("No such method: " + e.getMessage());
         }
+    }
+
+    private Object createSetterArgForType(Class type)
+          throws NoSuchMethodException, InstantiationException, IllegalAccessException,
+          InvocationTargetException {
+
+        Object setterArg = null;
+        if (type.isArray()) {
+
+            setterArg = Array.newInstance(type.getComponentType(),
+                  new int[]{TEST_ARRAY_SIZE});
+
+        } else if (type.isEnum()) {
+
+            setterArg = type.getEnumConstants()[0];
+
+        } else if (supportedClassTypes.containsKey(type)) {
+
+            setterArg = supportedClassTypes.get(type);
+
+        } else if (!type.isInterface()) {
+
+            // Attempt to construct a new instance of this type
+            // using it's default constructor.
+            final Constructor constructor = type.getDeclaredConstructor();
+
+            // Handle private constructors.
+            constructor.setAccessible(true);
+            setterArg = constructor.newInstance();
+        }
+        return setterArg;
     }
 }

@@ -30,8 +30,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/context-datasource-test.xml",
-      "/context-persistence.xml"})
+@ContextConfiguration(locations = {"/context-datasource-test.xml", "/context-persistence.xml"})
 public class UserRepositoryHibernateImplTest
       extends AbstractTransactionalJUnit4SpringContextTests {
 
@@ -64,8 +63,6 @@ public class UserRepositoryHibernateImplTest
     @Test
     public void findAllUsersShouldFindUsers() {
 
-//        executeSqlScript("/com/pixelus/user/user.sql", false);
-
         List<User> users = userRepository.findAll();
 
         assertTrue(users.size() > 0);
@@ -86,8 +83,7 @@ public class UserRepositoryHibernateImplTest
     }
 
     @Test
-    public void updateUserShouldUpdateExistingUser()
-          throws Exception {
+    public void updateUserShouldUpdateExistingUser() {
 
         User user = userRepository.findById(TEST_USER_ID);
         user.setFirstName(user.getFirstName() + " - UPDATED");
@@ -102,8 +98,7 @@ public class UserRepositoryHibernateImplTest
     }
 
     @Test
-    public void deleteShouldDeleteExistingUser()
-          throws Exception {
+    public void deleteShouldDeleteExistingUser() {
 
         User user = userRepository.findById(TEST_USER_ID);
         assertNotNull(user);

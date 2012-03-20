@@ -25,21 +25,19 @@ import static org.mockito.Mockito.verify;
 public class AbstractServiceImplTest {
 
     private static final String ENTITY_ID = "entity";
-    private AbstractServiceImpl abstractService;
+    private AbstractServiceImpl<ModelEntity<String>, String> abstractService;
 
     @Mock
-    private Repository repository;
+    private Repository<ModelEntity<String>, String> repository;
 
     @Before
     public void setUp() {
 
-        abstractService = new AbstractServiceImpl<ModelEntity<String>,
-              String>(repository);
+        abstractService = new AbstractServiceImpl<ModelEntity<String>, String>(repository);
     }
 
     @Test
-    public void findByIdShouldCallRepository()
-          throws Exception {
+    public void findByIdShouldCallRepository() {
 
         abstractService.findById(ENTITY_ID);
 

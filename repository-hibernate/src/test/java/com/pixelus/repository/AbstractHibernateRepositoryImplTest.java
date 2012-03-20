@@ -45,8 +45,7 @@ public class AbstractHibernateRepositoryImplTest {
     private StubEntity entity;
 
     @Before
-    public void setUp()
-          throws Exception {
+    public void setUp() {
 
         repository = new StubHibernateRepositoryImpl(sessionFactory);
 
@@ -63,24 +62,21 @@ public class AbstractHibernateRepositoryImplTest {
     }
 
     @Test
-    public void updateShouldCallSessionUpdate()
-          throws Exception {
+    public void updateShouldCallSessionUpdate() {
 
         repository.update(entity);
         verify(session).update(entity);
     }
 
     @Test
-    public void deleteShouldCallSessionDelete()
-          throws Exception {
+    public void deleteShouldCallSessionDelete() {
 
         repository.delete(entity);
         verify(session).delete(entity);
     }
 
     @Test
-    public void findByIdShouldQueryById()
-          throws Exception {
+    public void findByIdShouldQueryById() {
 
         Query query = mock(Query.class);
         when(session.createQuery("from " + entity.getClass().getName() + " where id = "
@@ -109,16 +105,14 @@ public class AbstractHibernateRepositoryImplTest {
     }
 
     @Test
-    public void getEntityClassShouldReturnClassForParameterizedType()
-          throws Exception {
+    public void getEntityClassShouldReturnClassForParameterizedType() {
 
         assertThat(repository.getEntityClass().getCanonicalName(),
               is(StubEntity.class.getCanonicalName()));
     }
 
     @Test
-    public void getEntityClassShouldNotReturnClassForNonParameterizedType()
-          throws Exception {
+    public void getEntityClassShouldNotReturnClassForNonParameterizedType() {
 
         StubInvalidHibernateRepositoryImpl repository = new
               StubInvalidHibernateRepositoryImpl(sessionFactory);
