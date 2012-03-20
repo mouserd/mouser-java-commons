@@ -12,8 +12,6 @@ package com.pixelus.test.utils;
  * @author David Mouser
  */
 
-import org.apache.log4j.Logger;
-
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
@@ -51,8 +49,6 @@ import static org.junit.Assert.fail;
  */
 @SuppressWarnings("unchecked")
 public class GetterSetterAsserter {
-
-    private static final Logger LOG = Logger.getLogger(GetterSetterAsserter.class);
 
     /**
      * Default test size used when testing primitive arrays.
