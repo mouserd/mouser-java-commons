@@ -21,6 +21,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
 
@@ -117,5 +119,25 @@ public class AbstractHibernateRepositoryImplTest {
         StubInvalidHibernateRepositoryImpl repository = new
               StubInvalidHibernateRepositoryImpl(sessionFactory);
         assertNull(repository.getEntityClass());
+    }
+
+    @Test
+    public void getClassFromTypeArgumentsShouldReturnNullForInvalidType() {
+
+        ParameterizedType type = mock(ParameterizedType.class);
+        when(type.getActualTypeArguments()).thenReturn(null);
+        Class clazz = repository.getClassFromTypeArguments(type);
+
+        assertNull(clazz);
+    }
+
+    @Test
+    public void getClassFromTypeArgumentsShouldReturnNullForTypeWithNoAguments() {
+
+        ParameterizedType type = mock(ParameterizedType.class);
+        when(type.getActualTypeArguments()).thenReturn(new Type[]{});
+        Class clazz = repository.getClassFromTypeArguments(type);
+
+        assertNull(clazz);
     }
 }

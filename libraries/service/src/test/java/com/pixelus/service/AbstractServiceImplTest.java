@@ -40,7 +40,7 @@ public class AbstractServiceImplTest {
     @Test
     public void saveShouldCallRepository() {
 
-        ModelEntity<String> entity = mock(ModelEntity.class);
+        ModelEntity<String> entity = (ModelEntity<String>) mock(ModelEntity.class);
         abstractService.save(entity);
 
         verify(repository).save(entity);
@@ -49,7 +49,7 @@ public class AbstractServiceImplTest {
     @Test
     public void updateShouldCallRepository() {
 
-        ModelEntity<String> entity = mock(ModelEntity.class);
+        ModelEntity<String> entity = (ModelEntity<String>) mock(ModelEntity.class);
         abstractService.update(entity);
 
         verify(repository).update(entity);
@@ -58,7 +58,7 @@ public class AbstractServiceImplTest {
     @Test
     public void deleteShouldCallRepository() {
 
-        ModelEntity<String> entity = mock(ModelEntity.class);
+        ModelEntity<String> entity = (ModelEntity<String>) mock(ModelEntity.class);
         abstractService.delete(entity);
 
         verify(repository).delete(entity);

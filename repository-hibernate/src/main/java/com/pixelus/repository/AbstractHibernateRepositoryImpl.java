@@ -93,14 +93,21 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
 
     protected final Class getEntityClass() {
 
-        final Type genType = getClass().getGenericSuperclass();
-        if (genType instanceof ParameterizedType) {
+        final Type type = getClass().getGenericSuperclass();
+        if (type instanceof ParameterizedType) {
 
-            final Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
-            if (params != null) {
+            return getClassFromTypeArguments((ParameterizedType) type);
+        }
 
-                return (Class) params[0];
-            }
+        return null;
+    }
+
+    protected final Class getClassFromTypeArguments(ParameterizedType type) {
+
+        final Type[] params = type.getActualTypeArguments();
+        if ((params != null) && (params.length > 0)) {
+
+            return (Class) params[0];
         }
 
         return null;
