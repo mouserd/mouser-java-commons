@@ -8,13 +8,12 @@
 
 package com.pixelus.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Company")
@@ -27,6 +26,9 @@ public class Company
     @GeneratedValue
     @Column(name = "USER_ID")
     private Long id;
+
+    @Column(name = "NAME")
+    private String name;
 
     public Company() {
 
@@ -47,5 +49,15 @@ public class Company
     public final void setId(final Long id) {
 
         this.id = id;
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
+    public void setName(String name) {
+
+        this.name = name;
     }
 }
