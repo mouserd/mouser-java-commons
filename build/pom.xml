@@ -207,13 +207,12 @@
                     </formats>
                     <check>
                         <haltOnFailure>true</haltOnFailure>
-                        <branchRate>85</branchRate>
-                        <lineRate>85</lineRate>
-                        <haltOnFailure>false</haltOnFailure>
-                        <totalBranchRate>85</totalBranchRate>
-                        <totalLineRate>85</totalLineRate>
-                        <packageLineRate>85</packageLineRate>
-                        <packageBranchRate>85</packageBranchRate>
+                        <branchRate>90</branchRate>
+                        <lineRate>90</lineRate>
+                        <totalBranchRate>90</totalBranchRate>
+                        <totalLineRate>90</totalLineRate>
+                        <packageLineRate>90</packageLineRate>
+                        <packageBranchRate>90</packageBranchRate>
                     </check>
                 </configuration>
             </plugin>
