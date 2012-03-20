@@ -16,6 +16,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 /*
@@ -34,6 +35,33 @@ public class AbstractServiceImplTest {
     public void setUp() {
 
         abstractService = new AbstractServiceImpl<ModelEntity<String>, String>(repository);
+    }
+
+    @Test
+    public void saveShouldCallRepository() {
+
+        ModelEntity<String> entity = mock(ModelEntity.class);
+        abstractService.save(entity);
+
+        verify(repository).save(entity);
+    }
+
+    @Test
+    public void updateShouldCallRepository() {
+
+        ModelEntity<String> entity = mock(ModelEntity.class);
+        abstractService.update(entity);
+
+        verify(repository).update(entity);
+    }
+
+    @Test
+    public void deleteShouldCallRepository() {
+
+        ModelEntity<String> entity = mock(ModelEntity.class);
+        abstractService.delete(entity);
+
+        verify(repository).delete(entity);
     }
 
     @Test

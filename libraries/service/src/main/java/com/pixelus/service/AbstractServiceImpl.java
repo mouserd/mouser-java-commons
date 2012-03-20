@@ -34,4 +34,22 @@ public class AbstractServiceImpl<T extends ModelEntity<?>, K>
 
         return repository.findById(id);
     }
+
+    @Override
+    public void save(T entity) {
+
+        repository.save(entity);
+    }
+
+    @Override
+    public void update(T entity) {
+
+        repository.update(entity);
+    }
+
+    @Override
+    public void delete(T entity) {
+
+        repository.delete(entity);
+    }
 }
