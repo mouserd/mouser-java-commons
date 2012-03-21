@@ -167,7 +167,7 @@
     </build>
 
     <reporting>
-        <!--<outputDirectory>${basedir}/target/site</outputDirectory>-->
+        <outputDirectory>${basedir}/target/site</outputDirectory>
         <plugins>
             <plugin>
                 <artifactId>maven-site-plugin</artifactId>
