@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+  ~ This source code is copyright (c) 2012 Pixelus Consulting Pty Ltd.  All
+  ~ rights reserved.
+  ~
+  ~ Should you wish to use or enquire about any of the content contained please
+  ~ contact David Mouser (david.mouser@gmail.com).
+  -->
+
+<!DOCTYPE suppressions PUBLIC
+      "-//Puppy Crawl//DTD Suppressions 1.0//EN"
+      "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
+
+<suppressions>
+    <suppress checks="MagicNumberCheck" files="com.pixelus.lang.math.MutableBigDecimalTest"/>
+</suppressions>

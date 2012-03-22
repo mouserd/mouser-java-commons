@@ -124,6 +124,10 @@
                         <version>0.0.1</version>
                     </dependency>
                 </dependencies>
+                <configuration>
+                    <configLocation>build-config/checkstyle.xml</configLocation>
+                    <suppressionsFile>build-config/checkstyle-supressions.xml</suppressionsFile>
+                </configuration>
             </plugin>
 
             <plugin>
@@ -189,6 +193,7 @@
                 <version>${checkstyle.version}</version>
                 <configuration>
                     <configLocation>build-config/checkstyle.xml</configLocation>
+                    <suppressionsFile>build-config/checkstyle-supressions.xml</suppressionsFile>
                 </configuration>
             </plugin>
 
@@ -237,6 +242,11 @@
                 <configuration>
                     <targetJdk>${java.version}</targetJdk>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jxr-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </reporting>
