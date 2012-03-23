@@ -57,6 +57,7 @@
                 </dependencies>
                 <configuration>
                     <reportPlugins>
+                        <!--<outputDirectory>${basedir}/target/site</outputDirectory>-->
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
@@ -115,6 +116,11 @@
                             <groupId>org.codehaus.mojo</groupId>
                             <artifactId>cobertura-maven-plugin</artifactId>
                             <version>${cobertura.version}</version>
+                            <configuration>
+                                <formats>
+                                    <format>xml</format>
+                                </formats>
+                            </configuration>
                         </plugin>
                     </reportPlugins>
                 </configuration>
@@ -144,6 +150,16 @@
                         <packageBranchRate>85</packageBranchRate>
                     </check>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>clean</goal>
+                            <goal>cobertura</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
