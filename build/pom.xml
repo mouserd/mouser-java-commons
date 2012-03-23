@@ -126,6 +126,16 @@
                                 <formats>
                                     <format>xml</format>
                                 </formats>
+                                <check>
+                                    <haltOnFailure>false</haltOnFailure>
+                                    <branchRate>85</branchRate>
+                                    <lineRate>85</lineRate>
+                                    <haltOnFailure>false</haltOnFailure>
+                                    <totalBranchRate>85</totalBranchRate>
+                                    <totalLineRate>85</totalLineRate>
+                                    <packageLineRate>85</packageLineRate>
+                                    <packageBranchRate>85</packageBranchRate>
+                                </check>
                             </configuration>
                         </plugin>
                     </reportPlugins>
