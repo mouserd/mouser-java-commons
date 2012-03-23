@@ -109,7 +109,6 @@
                             <configuration>
                                 <targetJdk>${java.version}</targetJdk>
                             </configuration>
-
                         </plugin>
 
                         <plugin>
@@ -133,7 +132,6 @@
                     </instrumentation>
                     <formats>
                         <format>xml</format>
-                        <format>html</format>
                     </formats>
                     <check>
                         <haltOnFailure>false</haltOnFailure>
