@@ -28,6 +28,14 @@
         </developer>
     </developers>
 
+    <distributionManagement>
+        <site>
+            <id>site</id>
+            <name>Pixelus Commons</name>
+            <url>http://localhost:8080/job/Pixelus%20Commons/site/</url>
+        </site>
+    </distributionManagement>
+
     <build>
         <finalName>build</finalName>
 
@@ -57,7 +65,7 @@
                 </dependencies>
                 <configuration>
                     <attach>true</attach>
-                    <outputDirectory>${basedir}/target/site</outputDirectory>
+                    <!--<outputDirectory>${basedir}/target/site</outputDirectory>-->
                     <reportPlugins>
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
