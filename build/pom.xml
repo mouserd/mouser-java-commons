@@ -168,11 +168,9 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <phase>verify</phase>
+                        <phase>package</phase>
                         <goals>
-                            <goal>clean</goal>
                             <goal>cobertura</goal>
-                            <goal>check</goal>
                         </goals>
                     </execution>
                 </executions>
