@@ -57,7 +57,7 @@
                 </dependencies>
                 <configuration>
                     <attach>true</attach>
-                    <!--<outputDirectory>${basedir}/target/site</outputDirectory>-->
+                    <outputDirectory>${basedir}/target/site</outputDirectory>
                     <reportPlugins>
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
@@ -171,31 +171,31 @@
     </build>
 
     <reporting>
-        <outputDirectory>${basedir}/target/site</outputDirectory>
+        <!--<outputDirectory>${basedir}/target/site</outputDirectory>-->
         <plugins>
             <plugin>
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.0</version>
-                <!--<configuration>-->
-                <!--<relativizeDecorationLinks>false</relativizeDecorationLinks>-->
-                <!--</configuration>-->
+                <configuration>
+                    <relativizeDecorationLinks>false</relativizeDecorationLinks>
+                </configuration>
             </plugin>
 
-            <!--<plugin>-->
-            <!--<groupId>org.apache.maven.plugins</groupId>-->
-            <!--<artifactId>maven-javadoc-plugin</artifactId>-->
-            <!--<version>2.8</version>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8</version>
+            </plugin>
 
-            <!--<plugin>-->
-            <!--<groupId>org.apache.maven.plugins</groupId>-->
-            <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
-            <!--<version>${checkstyle.version}</version>-->
-            <!--<configuration>-->
-            <!--<configLocation>build-config/checkstyle.xml</configLocation>-->
-            <!--<suppressionsFile>build-config/checkstyle-supressions.xml</suppressionsFile>-->
-            <!--</configuration>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle.version}</version>
+                <configuration>
+                    <configLocation>build-config/checkstyle.xml</configLocation>
+                    <suppressionsFile>build-config/checkstyle-supressions.xml</suppressionsFile>
+                </configuration>
+            </plugin>
 
             <!--<plugin>-->
             <!--<groupId>org.codehaus.mojo</groupId>-->
