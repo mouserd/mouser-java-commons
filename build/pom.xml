@@ -243,23 +243,23 @@
                         <packageBranchRate>90</packageBranchRate>
                     </check>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>clean</id>
-                        <phase>pre-site</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>instrument</id>
-                        <phase>site</phase>
-                        <goals>
-                            <!--<goal>instrument</goal>-->
-                            <goal>cobertura</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <!--<executions>-->
+                <!--<execution>-->
+                <!--<id>clean</id>-->
+                <!--<phase>pre-site</phase>-->
+                <!--<goals>-->
+                <!--<goal>clean</goal>-->
+                <!--</goals>-->
+                <!--</execution>-->
+                <!--<execution>-->
+                <!--<id>instrument</id>-->
+                <!--<phase>site</phase>-->
+                <!--<goals>-->
+                <!--&lt;!&ndash;<goal>instrument</goal>&ndash;&gt;-->
+                <!--<goal>cobertura</goal>-->
+                <!--</goals>-->
+                <!--</execution>-->
+                <!--</executions>-->
             </plugin>
         </plugins>
     </reporting>
