@@ -112,33 +112,6 @@
                                 <targetJdk>${java.version}</targetJdk>
                             </configuration>
                         </plugin>
-
-                        <!--<plugin>-->
-                        <!--<groupId>org.codehaus.mojo</groupId>-->
-                        <!--<artifactId>cobertura-maven-plugin</artifactId>-->
-                        <!--<version>${cobertura.version}</version>-->
-                        <!--<configuration>-->
-                        <!--<instrumentation>-->
-                        <!--<excludes>-->
-                        <!--<exclude>com/pixelus/test/utils/GetterSetterAsserter.class-->
-                        <!--</exclude>-->
-                        <!--</excludes>-->
-                        <!--</instrumentation>-->
-                        <!--<formats>-->
-                        <!--<format>xml</format>-->
-                        <!--</formats>-->
-                        <!--&lt;!&ndash;<check>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<haltOnFailure>false</haltOnFailure>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<branchRate>85</branchRate>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<lineRate>85</lineRate>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<haltOnFailure>false</haltOnFailure>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<totalBranchRate>85</totalBranchRate>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<totalLineRate>85</totalLineRate>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<packageLineRate>85</packageLineRate>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<packageBranchRate>85</packageBranchRate>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</check>&ndash;&gt;-->
-                        <!--</configuration>-->
-                        <!--</plugin>-->
                     </reportPlugins>
                 </configuration>
             </plugin>
@@ -168,13 +141,13 @@
                     </check>
                 </configuration>
                 <executions>
-                    <!--<execution>-->
-                    <!--<id>clean</id>-->
-                    <!--<phase>pre-site</phase>-->
-                    <!--<goals>-->
-                    <!--<goal>clean</goal>-->
-                    <!--</goals>-->
-                    <!--</execution>-->
+                    <execution>
+                        <id>clean</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>instrument</id>
                         <phase>site</phase>
@@ -205,44 +178,44 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8</version>
-            </plugin>
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+            <!--<version>2.8</version>-->
+            <!--</plugin>-->
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${checkstyle.version}</version>
-                <configuration>
-                    <configLocation>build-config/checkstyle.xml</configLocation>
-                    <suppressionsFile>build-config/checkstyle-supressions.xml</suppressionsFile>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+            <!--<version>${checkstyle.version}</version>-->
+            <!--<configuration>-->
+            <!--<configLocation>build-config/checkstyle.xml</configLocation>-->
+            <!--<suppressionsFile>build-config/checkstyle-supressions.xml</suppressionsFile>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
 
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>${findbugs.version}</version>
-                <configuration>
-                    <findbugsXmlOutput>true</findbugsXmlOutput>
-                    <xmlOutput>true</xmlOutput>
-                    <threshold>Normal</threshold>
-                    <effort>Default</effort>
-                    <excludeFilterFile>build-config/findbugs-exclude.xml</excludeFilterFile>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+            <!--<groupId>org.codehaus.mojo</groupId>-->
+            <!--<artifactId>findbugs-maven-plugin</artifactId>-->
+            <!--<version>${findbugs.version}</version>-->
+            <!--<configuration>-->
+            <!--<findbugsXmlOutput>true</findbugsXmlOutput>-->
+            <!--<xmlOutput>true</xmlOutput>-->
+            <!--<threshold>Normal</threshold>-->
+            <!--<effort>Default</effort>-->
+            <!--<excludeFilterFile>build-config/findbugs-exclude.xml</excludeFilterFile>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>${pmd.version}</version>
-                <configuration>
-                    <targetJdk>${java.version}</targetJdk>
-                    <rulesets>build-config/pmd.xml</rulesets>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-pmd-plugin</artifactId>-->
+            <!--<version>${pmd.version}</version>-->
+            <!--<configuration>-->
+            <!--<targetJdk>${java.version}</targetJdk>-->
+            <!--<rulesets>build-config/pmd.xml</rulesets>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
