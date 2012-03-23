@@ -56,8 +56,8 @@
                     </dependency>
                 </dependencies>
                 <configuration>
+                    <outputDirectory>${basedir}/target/site</outputDirectory>
                     <reportPlugins>
-                        <!--<outputDirectory>${basedir}/target/site</outputDirectory>-->
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
