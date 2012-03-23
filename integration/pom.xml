@@ -22,7 +22,7 @@
     <groupId>com.pixelus</groupId>
     <version>0.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Repository (Integration)</name>
+    <name>Integration</name>
 
     <build>
         <finalName>integration</finalName>
