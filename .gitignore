@@ -1,9 +1,10 @@
 # Compiled source #
 ###################
-**/target/
+**target/
 .idea/**
 .settings/**
 /reports
 *.iml
 *.jar
 *.war
+.vimrc
