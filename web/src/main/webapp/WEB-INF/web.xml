@@ -9,10 +9,11 @@
 
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+         http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-    <display-name>Spring Sandbox</display-name>
-    <description>Spring Sandbox</description>
+    <display-name>Pixelus Commons</display-name>
+    <description>Pixelus Commons</description>
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -24,8 +25,7 @@
 
     <!-- Bootstraps the root web application context before servlet initialization -->
     <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener
-        </listener-class>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
     <filter>
@@ -53,7 +53,7 @@
 
     <servlet-mapping>
         <servlet-name>spring-mvc</servlet-name>
-        <url-pattern>*.jsp</url-pattern>
+        <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
@@ -65,4 +65,7 @@
         <session-timeout>90</session-timeout>
     </session-config>
 
+    <welcome-file-list>
+        <welcome-file>/welcome.html</welcome-file>
+    </welcome-file-list>
 </web-app>
