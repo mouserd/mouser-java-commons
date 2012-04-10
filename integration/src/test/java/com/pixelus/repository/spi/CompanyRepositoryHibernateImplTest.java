@@ -7,22 +7,20 @@
  */
 package com.pixelus.repository.spi;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import
-  org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/context-datasource-test.xml",
-      "/context-persistence.xml" })
+@ContextConfiguration(locations = { "/context-persistence-test.xml" })
 public class CompanyRepositoryHibernateImplTest
-    extends AbstractTransactionalJUnit4SpringContextTests {
+      extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Autowired
     private CompanyRepositoryHibernateImpl companyDao;

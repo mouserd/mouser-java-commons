@@ -30,7 +30,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/context-datasource-test.xml", "/context-persistence.xml" })
+@ContextConfiguration(locations = { "/context-persistence-test.xml" })
 public class UserRepositoryHibernateImplTest
       extends AbstractTransactionalJUnit4SpringContextTests {
 
