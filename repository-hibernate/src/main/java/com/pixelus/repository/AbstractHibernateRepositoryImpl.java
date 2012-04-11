@@ -14,6 +14,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -38,6 +39,7 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
 
 
     @Override
+    @Transactional
     public final void save(final T entity) {
 
         LOG.debug("Creating " + entityClass.getName() + " (id: " + entity.getId() + ")");
@@ -46,6 +48,7 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
     }
 
     @Override
+    @Transactional
     public final void update(T entity) {
 
         LOG.debug("Updating " + entityClass.getName() + " (id: " + entity.getId() + ")");
@@ -54,6 +57,7 @@ public abstract class AbstractHibernateRepositoryImpl<T extends ModelEntity<?>, 
     }
 
     @Override
+    @Transactional
     public final void delete(T entity) {
 
         LOG.debug("Deleting " + entityClass.getName() + " (id: " + entity.getId() + ")");

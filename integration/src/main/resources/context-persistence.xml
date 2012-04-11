@@ -40,13 +40,8 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="save*" propagation="REQUIRED"/>
-            <tx:method name="update*" propagation="REQUIRED"/>
-            <tx:method name="delete*" propagation="REQUIRED"/>
-            <tx:method name="*" propagation="SUPPORTS" read-only="true"/>
-        </tx:attributes>
-    </tx:advice>
-
+    <!-- enable the configuration of transactional behavior based on annotations.
+         given we have a bean called 'transactionManager' the following could actually be
+         omitted if we really wanted to! -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
