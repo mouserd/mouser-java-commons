@@ -37,17 +37,17 @@
             <list>
                 <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
                 <bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-                    <property name="cache" value="true"/>
-                    <property name="prefix" value=""/>
+                    <property name="cache" value="false"/>
+                    <property name="prefix" value="/WEB-INF/velocity/"/>
                     <property name="suffix" value=".vm"/>
                     <property name="order" value="1"/>
+                    <property name="exposeSpringMacroHelpers" value="true"/>
                 </bean>
                 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
                     <property name="prefix" value="/WEB-INF/jsp/"/>
                     <property name="suffix" value=".jsp"/>
                     <property name="order" value="2"/>
                 </bean>
-
             </list>
         </property>
     </bean>
@@ -81,6 +81,6 @@
     -->
     <bean id="velocityConfig"
           class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-        <property name="resourceLoaderPath" value="/WEB-INF/velocity/"/>
+        <property name="resourceLoaderPath" value="/"/>
     </bean>
 </beans>
