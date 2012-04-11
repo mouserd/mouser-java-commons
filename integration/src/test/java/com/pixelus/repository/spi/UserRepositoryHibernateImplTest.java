@@ -27,7 +27,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/context-persistence-test.xml" })
@@ -65,7 +64,7 @@ public class UserRepositoryHibernateImplTest
 
         List<User> users = userRepository.findAll();
 
-        assertTrue(users.size() > 0);
+        assertThat(users.size(), is(3));
     }
 
     @Test
