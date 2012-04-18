@@ -84,36 +84,45 @@
     </div>
 </div>
 
-<div class="row">
-    <span class="span12">
-        <div class="alert alert-info">
-            <a class="close" data-dismiss="alert">×</a>
-            <h4 class="alert-heading">You've been here before!</h4>
-            Interested in receiving our newsletter? Sign up now!
-        </div>
-    </span>
+<div class="container">
+    <div class="row">
+        <span class="span8 offset2">
+            <div class="alert alert-info">
+                <a class="close" data-dismiss="alert">×</a>
+                <h4 class="alert-heading">You've been here before!</h4>
+                Interested in receiving our newsletter? Sign up now!
+            </div>
+        </span>
+    </div>
 </div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <span class="span2">
+            <p></p>
+        </span>
+        <span class="span8">
 
-<div class="row">
-    <span class="span12">
+            <div class="hero-unit">
+                <h2>Custom Web Development</h2>
 
-        <div class="hero-unit">
-            <h1>Custom Web Development</h1>
+                <p>Tagline</p>
 
-            <p>Tagline</p>
+                <p>
+                    <a class="btn btn-primary btn-large">
+                        Read more...
+                    </a>
+                </p>
+            </div>
+        </span>
+        <span class="span2">
+            <p></p>
+        </span>
+    </div>
 
-            <p>
-                <a class="btn btn-primary btn-large">
-                    Read more...
-                </a>
-            </p>
-        </div>
-    </span>
-</div>
-
-<div class="row">
-    <div id="response" class="span4"><span class="label">02/04/2012</span></div>
-    <div class="span8" style="background-color: grey;"></div>
+    <div class="row-fluid">
+        <div id="response" class="span4"><span class="label">02/04/2012</span></div>
+        <div class="span8" style="background-color: grey;"></div>
+    </div>
 </div>
 </body>
 </html>
