@@ -259,6 +259,12 @@
             <version>1.2.16</version>
         </dependency>
 
+        <!--<dependency>-->
+        <!--<groupId>org.apache.commons</groupId>-->
+        <!--<artifactId>lang</artifactId>-->
+        <!--<version></version>-->
+        <!--</dependency>-->
+
         <!-- TEST DEPENDENCIES -->
         <dependency>
             <groupId>org.springframework</groupId>
