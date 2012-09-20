@@ -51,8 +51,8 @@
         }, activate:function (element, container, callback) {
             var $active = container.find('> .active')
                 , transition = callback
-                && $.support.transition
-                && $active.hasClass('fade')
+                    && $.support.transition
+                    && $active.hasClass('fade')
 
             function next() {
                 $active

@@ -6,20 +6,20 @@
  * contact David Mouser (david.mouser@gmail.com).
  */
 
-package co.pixelus.entity;
+package com.pixelus.entity.entity;
 
-import com.pixelus.entity.Company;
+import com.pixelus.entity.User;
 import com.pixelus.test.utils.GetterSetterAsserter;
 import org.junit.Test;
 
 /*
-* @author David Mouser
-*/
-public class CompanyTest {
+ * @author David Mouser
+ */
+public class UserTest {
 
     @Test
     public void testGettersAndSetters() {
 
-        new GetterSetterAsserter().assertAllGettersAndSetters(new Company());
+        new GetterSetterAsserter().assertAllGettersAndSetters(new User());
     }
 }

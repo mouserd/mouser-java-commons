@@ -61,9 +61,9 @@
         }, transition:function (method, startEvent, completeEvent) {
             var that = this
                 , complete = function () {
-                if (startEvent == 'show') that.reset()
-                that.$element.trigger(completeEvent)
-            }
+                    if (startEvent == 'show') that.reset()
+                    that.$element.trigger(completeEvent)
+                }
 
             this.$element
                 .trigger(startEvent)
@@ -105,8 +105,8 @@
         $('body').on('click.collapse.data-api', '[data-toggle=collapse]', function (e) {
             var $this = $(this), href
                 , target = $this.attr('data-target')
-                || e.preventDefault()
-                || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+                    || e.preventDefault()
+                    || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
                 , option = $(target).data('collapse') ? 'toggle' : $this.data()
             $(target).collapse(option)
         })
