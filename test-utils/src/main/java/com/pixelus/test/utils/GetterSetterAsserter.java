@@ -250,12 +250,12 @@ public class GetterSetterAsserter {
             // be determined at runtime and was causing tests to fail during
             // cobertura instrumentation due to the generics information no longer being
             // available.
-//            if ((setterArg != null) && (setterArg.getClass() == Object.class)) {
-//
-//                LOG.error("Property '" + property + "' not tested as "
-//                      + "return/parameter type is an Object [possibly due to generics]");
-//                return;
-//            }
+            if ((setterArg != null) && (setterArg.getClass() == Object.class)) {
+
+                System.err.println("Property '" + property + "' not tested as "
+                      + "return/parameter type is an Object [possibly due to generics]");
+                return;
+            }
 
             assertNotNull("Unsupported type '" + type.getName() + "'. "
                   + "Unable to test getter/setter for property " + property, setterArg);
