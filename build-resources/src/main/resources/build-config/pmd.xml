@@ -103,7 +103,6 @@
     <rule ref="rulesets/basic.xml/ForLoopShouldBeWhileLoop"/>
     <rule ref="rulesets/basic.xml/UnnecessaryConversionTemporary"/>
     <rule ref="rulesets/basic.xml/OverrideBothEqualsAndHashcode"/>
-    <rule ref="rulesets/basic.xml/DoubleCheckedLocking"/>
     <rule ref="rulesets/basic.xml/ReturnFromFinallyBlock"/>
     <rule ref="rulesets/basic.xml/EmptySynchronizedBlock"/>
     <rule ref="rulesets/basic.xml/UnnecessaryReturn"/>
