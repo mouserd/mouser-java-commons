@@ -1,10 +1,15 @@
-# Compiled source #
-###################
-**target/
-.idea/**
-.settings/**
-/reports
-*.iml
+*.class
+*.log
+target/
+
+# Package Files
 *.jar
 *.war
+*.ear
+
+# IDE specific
+*.iml
+.idea
+.project
+.settings
 .vimrc
