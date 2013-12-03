@@ -297,7 +297,7 @@
 
     <!-- PROPERTIES -->
     <properties>
-        <spring.version>3.1.1.RELEASE</spring.version>
+        <spring.version>3.2.5.RELEASE</spring.version>
         <java.version>1.6</java.version>
 
         <junit.version>4.10</junit.version>
