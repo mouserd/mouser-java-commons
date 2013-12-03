@@ -8,5 +8,5 @@
   -->
 
 <FindBugsFilter>
-    <!--Match classregex="" /-->
+  <!--Match classregex="" /-->
 </FindBugsFilter>

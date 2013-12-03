@@ -11,51 +11,51 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
         http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>commons</artifactId>
-    <groupId>com.pixelus</groupId>
-    <version>0.0.2-SNAPSHOT</version>
+  <artifactId>commons</artifactId>
+  <groupId>com.pixelus</groupId>
+  <version>0.0.2-SNAPSHOT</version>
 
-    <packaging>pom</packaging>
-    <name>Pixelus Commons</name>
-    <description>A set of common modules, useful when setting a new application
-    </description>
+  <packaging>pom</packaging>
+  <name>Pixelus Commons</name>
+  <description>A set of common modules, useful when setting a new application
+  </description>
 
-    <modules>
-        <module>build-resources</module>
-        <module>build</module>
-        <module>test-utils</module>
-        <module>libraries</module>
-        <module>repository-hibernate</module>
-        <module>integration</module>
-        <module>utils</module>
-        <module>web</module>
-    </modules>
+  <modules>
+    <module>build-resources</module>
+    <module>build</module>
+    <module>test-utils</module>
+    <module>libraries</module>
+    <module>repository-hibernate</module>
+    <module>integration</module>
+    <module>utils</module>
+    <module>web</module>
+  </modules>
 
-    <ciManagement>
-        <system>hudson</system>
-        <url>http://localhost:8085/</url>
-    </ciManagement>
+  <ciManagement>
+    <system>hudson</system>
+    <url>http://localhost:8085/</url>
+  </ciManagement>
 
-    <developers>
-        <developer>
-            <name>David Mouser</name>
-            <email>david.mouser@gmail.com</email>
-            <organization>Pixelus Consulting</organization>
-            <organizationUrl>http://www.pixelus.com.au/</organizationUrl>
-        </developer>
-    </developers>
+  <developers>
+    <developer>
+      <name>David Mouser</name>
+      <email>david.mouser@gmail.com</email>
+      <organization>Pixelus Consulting</organization>
+      <organizationUrl>http://www.pixelus.com.au/</organizationUrl>
+    </developer>
+  </developers>
 
-    <!--<repositories>-->
-    <!--<repository>-->
-    <!--<id>JBoss Repo</id>-->
-    <!--<url>https://repository.jboss.org/nexus/content/groups/public</url>-->
-    <!--</repository>-->
-    <!--<repository>-->
-    <!--<id>Repo1</id>-->
-    <!--<url>http://repo1.maven.org/maven2</url>-->
-    <!--</repository>-->
-    <!--</repositories>-->
+  <!--<repositories>-->
+  <!--<repository>-->
+  <!--<id>JBoss Repo</id>-->
+  <!--<url>https://repository.jboss.org/nexus/content/groups/public</url>-->
+  <!--</repository>-->
+  <!--<repository>-->
+  <!--<id>Repo1</id>-->
+  <!--<url>http://repo1.maven.org/maven2</url>-->
+  <!--</repository>-->
+  <!--</repositories>-->
 
 </project>

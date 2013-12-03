@@ -10,36 +10,36 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>build</artifactId>
-        <groupId>com.pixelus</groupId>
-        <version>0.0.1</version>
-        <relativePath>../../build/pom.xml</relativePath>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>service</artifactId>
+  <parent>
+    <artifactId>build</artifactId>
     <groupId>com.pixelus</groupId>
-    <version>0.0.2-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <name>Service</name>
+    <version>0.0.1</version>
+    <relativePath>../../build/pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
 
-    <build>
-        <finalName>service</finalName>
+  <artifactId>service</artifactId>
+  <groupId>com.pixelus</groupId>
+  <version>0.0.2-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Service</name>
 
-        <!-- PLUGINS -->
-        <plugins/>
-    </build>
+  <build>
+    <finalName>service</finalName>
 
-    <dependencies>
-        <!-- MODULE SPECIFIC DEPENDENCIES -->
-        <dependency>
-            <groupId>com.pixelus</groupId>
-            <artifactId>repository</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <!-- PLUGINS -->
+    <plugins/>
+  </build>
 
-    <!-- PROPERTIES -->
-    <properties/>
+  <dependencies>
+    <!-- MODULE SPECIFIC DEPENDENCIES -->
+    <dependency>
+      <groupId>com.pixelus</groupId>
+      <artifactId>repository</artifactId>
+      <version>0.0.2-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
+  <!-- PROPERTIES -->
+  <properties/>
 </project>
