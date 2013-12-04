@@ -73,6 +73,13 @@
                 </executions>
                 <configuration>
                     <jsSrcDir>${project.basedir}/src/main/webapp/assets/js</jsSrcDir>
+                    <sourceIncludes>
+                      <include>**/lib/jquery.js</include>
+                      <include>**/lib/bootstrap-tooltip.js</include>
+                      <include>**/lib/bootstrap-popover.js</include>
+                      <include>**/lib/bootstrap-carousel.js</include>
+                      <include>*.js</include>
+                    </sourceIncludes>
                     <specIncludes>
                         <include>jasmine-jquery.js</include>
                         <include>spec-helper.js</include>
