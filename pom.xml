@@ -34,8 +34,8 @@
   </modules>
 
   <ciManagement>
-    <system>hudson</system>
-    <url>http://localhost:8085/</url>
+    <system>travis CI</system>
+    <url>https://travis-ci.org/mouserd/mouser-java-commons</url>
   </ciManagement>
 
   <developers>
