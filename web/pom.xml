@@ -20,7 +20,6 @@
 
     <name>Web Application</name>
     <artifactId>web</artifactId>
-    <groupId>com.pixelus</groupId>
     <version>0.0.2-SNAPSHOT</version>
     <packaging>war</packaging>
 
