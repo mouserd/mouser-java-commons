@@ -17,9 +17,9 @@ import org.junit.Test;
  */
 public class UserTest {
 
-    @Test
-    public void testGettersAndSetters() {
+  @Test
+  public void testGettersAndSetters() {
 
-        new GetterSetterAsserter().assertAllGettersAndSetters(new User());
-    }
+    new GetterSetterAsserter().assertAllGettersAndSetters(new User());
+  }
 }

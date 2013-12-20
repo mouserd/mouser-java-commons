@@ -10,77 +10,77 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>build</artifactId>
-        <groupId>com.pixelus</groupId>
-        <version>0.0.1</version>
-        <relativePath>../build/pom.xml</relativePath>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>build</artifactId>
+    <groupId>com.pixelus</groupId>
+    <version>0.0.1</version>
+    <relativePath>../build/pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>integration</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <name>Integration</name>
+  <artifactId>integration</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Integration</name>
 
-    <build>
-        <finalName>integration</finalName>
+  <build>
+    <finalName>integration</finalName>
 
-        <!-- MODULE SPECIFIC PLUGINS -->
-        <plugins/>
-    </build>
+    <!-- MODULE SPECIFIC PLUGINS -->
+    <plugins/>
+  </build>
 
-    <dependencies>
-        <!-- MODULE SPECIFIC DEPENDENCIES -->
-        <dependency>
-            <groupId>com.pixelus</groupId>
-            <artifactId>repository-hibernate</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-        </dependency>
+  <dependencies>
+    <!-- MODULE SPECIFIC DEPENDENCIES -->
+    <dependency>
+      <groupId>com.pixelus</groupId>
+      <artifactId>repository-hibernate</artifactId>
+      <version>0.0.2-SNAPSHOT</version>
+    </dependency>
 
-        <dependency>
-            <groupId>com.pixelus</groupId>
-            <artifactId>service</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-        </dependency>
+    <dependency>
+      <groupId>com.pixelus</groupId>
+      <artifactId>service</artifactId>
+      <version>0.0.2-SNAPSHOT</version>
+    </dependency>
 
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
-        </dependency>
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.4</version>
+    </dependency>
 
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>2.2.4</version>
-            <scope>test</scope>
-        </dependency>
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <version>2.2.4</version>
+      <scope>test</scope>
+    </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.6.2</version>
-        </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.6.2</version>
+    </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.6.2</version>
-        </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.6.2</version>
+    </dependency>
 
-        <dependency>
-            <groupId>com.pixelus</groupId>
-            <artifactId>test-utils</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
+    <dependency>
+      <groupId>com.pixelus</groupId>
+      <artifactId>test-utils</artifactId>
+      <version>0.0.2-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
 
-    </dependencies>
+  </dependencies>
 
-    <!-- MODULE PROPERTIES -->
-    <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
+  <!-- MODULE PROPERTIES -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
 </project>

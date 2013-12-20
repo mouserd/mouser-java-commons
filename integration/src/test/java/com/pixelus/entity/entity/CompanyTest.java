@@ -17,9 +17,9 @@ import org.junit.Test;
 */
 public class CompanyTest {
 
-    @Test
-    public void testGettersAndSetters() {
+  @Test
+  public void testGettersAndSetters() {
 
-        new GetterSetterAsserter().assertAllGettersAndSetters(new Company());
-    }
+    new GetterSetterAsserter().assertAllGettersAndSetters(new Company());
+  }
 }

@@ -23,24 +23,24 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class UserControllerTest {
 
-    private static final long ID = 1L;
+  private static final long ID = 1L;
 
-    private UserController userController;
+  private UserController userController;
 
-    @Mock
-    private UserService userService;
+  @Mock
+  private UserService userService;
 
-    @Before
-    public void setUp() {
+  @Before
+  public void setUp() {
 
-        userController = new UserController(userService);
-    }
+    userController = new UserController(userService);
+  }
 
-    @Test
-    public void getUserDetailsShouldCallService() {
+  @Test
+  public void getUserDetailsShouldCallService() {
 
-        userController.getUserDetails(ID);
+    userController.getUserDetails(ID);
 
-        verify(userService).findById(1L);
-    }
+    verify(userService).findById(1L);
+  }
 }

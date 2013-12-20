@@ -7,8 +7,8 @@
  */
 
 describe("something should do something", function () {
-    it("should do something", function () {
-        expect(false).toBeFalsy();
-    });
+  it("should do something", function () {
+    expect(false).toBeFalsy();
+  });
 });
 

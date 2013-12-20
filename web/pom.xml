@@ -10,124 +10,124 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>build</artifactId>
-        <groupId>com.pixelus</groupId>
-        <version>0.0.1</version>
-        <relativePath>../build/pom.xml</relativePath>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>build</artifactId>
+    <groupId>com.pixelus</groupId>
+    <version>0.0.1</version>
+    <relativePath>../build/pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
 
-    <name>Web Application</name>
-    <artifactId>web</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
-    <packaging>war</packaging>
+  <name>Web Application</name>
+  <artifactId>web</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
+  <packaging>war</packaging>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.9</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.derby</groupId>
-                        <artifactId>derbyclient</artifactId>
-                        <version>10.8.1.2</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <contextPath>/</contextPath>
-                    <!-- overrideWebXml>src/test/resources/override-web.xml</overrideWebXml-->
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
-                    <scanTargetPatterns>
-                        <scanTargetPattern>
-                            <directory>src/main/webapp</directory>
-                            <includes>
-                                <include>**/*.properties</include>
-                                <include>**/*.xml</include>
-                            </includes>
-                        </scanTargetPattern>
-                        <scanTargetPattern>
-                            <directory>src/main/resources</directory>
-                            <includes>
-                                <include>**/*.properties</include>
-                            </includes>
-                        </scanTargetPattern>
-                    </scanTargetPatterns>
-                </configuration>
-            </plugin>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>maven-jetty-plugin</artifactId>
+        <version>6.1.9</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.8.1.2</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <contextPath>/</contextPath>
+          <!-- overrideWebXml>src/test/resources/override-web.xml</overrideWebXml-->
+          <scanIntervalSeconds>10</scanIntervalSeconds>
+          <scanTargetPatterns>
+            <scanTargetPattern>
+              <directory>src/main/webapp</directory>
+              <includes>
+                <include>**/*.properties</include>
+                <include>**/*.xml</include>
+              </includes>
+            </scanTargetPattern>
+            <scanTargetPattern>
+              <directory>src/main/resources</directory>
+              <includes>
+                <include>**/*.properties</include>
+              </includes>
+            </scanTargetPattern>
+          </scanTargetPatterns>
+        </configuration>
+      </plugin>
 
-            <plugin>
-                <groupId>com.github.searls</groupId>
-                <artifactId>jasmine-maven-plugin</artifactId>
-                <version>1.2.0.0</version>
-                <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <jsSrcDir>${project.basedir}/src/main/webapp/assets/js</jsSrcDir>
-                    <sourceIncludes>
-                      <include>**/lib/jquery.js</include>
-                      <include>**/lib/bootstrap-tooltip.js</include>
-                      <include>**/lib/bootstrap-popover.js</include>
-                      <include>**/lib/bootstrap-carousel.js</include>
-                      <include>*.js</include>
-                    </sourceIncludes>
-                    <specIncludes>
-                        <include>jasmine-jquery.js</include>
-                        <include>spec-helper.js</include>
-                        <include>**/*_spec.js</include>
-                    </specIncludes>
-                    <!-- configuration properties will go here -->
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+      <plugin>
+        <groupId>com.github.searls</groupId>
+        <artifactId>jasmine-maven-plugin</artifactId>
+        <version>1.2.0.0</version>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <jsSrcDir>${project.basedir}/src/main/webapp/assets/js</jsSrcDir>
+          <sourceIncludes>
+            <include>**/lib/jquery.js</include>
+            <include>**/lib/bootstrap-tooltip.js</include>
+            <include>**/lib/bootstrap-popover.js</include>
+            <include>**/lib/bootstrap-carousel.js</include>
+            <include>*.js</include>
+          </sourceIncludes>
+          <specIncludes>
+            <include>jasmine-jquery.js</include>
+            <include>spec-helper.js</include>
+            <include>**/*_spec.js</include>
+          </specIncludes>
+          <!-- configuration properties will go here -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
-    <dependencies>
-        <!-- MODULE SPECIFIC DEPENDENCIES -->
-        <dependency>
-            <groupId>com.pixelus</groupId>
-            <artifactId>service</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-        </dependency>
+  <dependencies>
+    <!-- MODULE SPECIFIC DEPENDENCIES -->
+    <dependency>
+      <groupId>com.pixelus</groupId>
+      <artifactId>service</artifactId>
+      <version>0.0.2-SNAPSHOT</version>
+    </dependency>
 
-        <dependency>
-            <groupId>com.pixelus</groupId>
-            <artifactId>integration</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-        </dependency>
+    <dependency>
+      <groupId>com.pixelus</groupId>
+      <artifactId>integration</artifactId>
+      <version>0.0.2-SNAPSHOT</version>
+    </dependency>
 
-        <!-- Jackson JSON Mapper -->
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.6.4</version>
-        </dependency>
+    <!-- Jackson JSON Mapper -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.6.4</version>
+    </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.apache.derby</groupId>-->
-        <!--<artifactId>derbyclient</artifactId>-->
-        <!--<version>10.8.1.2</version>-->
-        <!--</dependency>-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.18</version>
-        </dependency>
+    <!--<dependency>-->
+    <!--<groupId>org.apache.derby</groupId>-->
+    <!--<artifactId>derbyclient</artifactId>-->
+    <!--<version>10.8.1.2</version>-->
+    <!--</dependency>-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.18</version>
+    </dependency>
 
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>1.5</version>
-        </dependency>
-    </dependencies>
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity</artifactId>
+      <version>1.5</version>
+    </dependency>
+  </dependencies>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

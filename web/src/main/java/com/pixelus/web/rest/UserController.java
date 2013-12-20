@@ -23,21 +23,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "/api/user")
 public class UserController {
 
-    private static final Logger LOG = Logger.getLogger(UserController.class);
+  private static final Logger LOG = Logger.getLogger(UserController.class);
 
-    private final UserService userService;
+  private final UserService userService;
 
-    @Autowired
-    public UserController(final UserService userService) {
+  @Autowired
+  public UserController(final UserService userService) {
 
-        this.userService = userService;
-    }
+    this.userService = userService;
+  }
 
-    @RequestMapping(value = "/{id}.json", method = RequestMethod.GET)
-    @ResponseBody
-    public final User getUserDetails(@PathVariable final Long id) {
+  @RequestMapping(value = "/{id}.json", method = RequestMethod.GET)
+  @ResponseBody
+  public final User getUserDetails(@PathVariable final Long id) {
 
-        LOG.info("Getting user details for user id: " + id);
-        return userService.findById(id);
-    }
+    LOG.info("Getting user details for user id: " + id);
+    return userService.findById(id);
+  }
 }

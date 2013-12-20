@@ -24,85 +24,85 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/context-persistence-test.xml" })
+@ContextConfiguration(locations = {"/context-persistence-test.xml"})
 public class CompanyRepositoryHibernateImplTest
-      extends AbstractTransactionalJUnit4SpringContextTests {
+    extends AbstractTransactionalJUnit4SpringContextTests {
 
-    public static final String COMPANY_NAME = "Pixelus Consulting";
-    public static final long COMPANY_ID = 1L;
+  public static final String COMPANY_NAME = "Pixelus Consulting";
+  public static final long COMPANY_ID = 1L;
 
-    @Autowired
-    private CompanyRepositoryHibernateImpl companyRepository;
+  @Autowired
+  private CompanyRepositoryHibernateImpl companyRepository;
 
-    @Autowired
-    private SessionFactory sessionFactory;
+  @Autowired
+  private SessionFactory sessionFactory;
 
-    @Before
-    public void setUp() {
+  @Before
+  public void setUp() {
 
-        this.executeSqlScript("/com/pixelus/company/company.sql", false);
-    }
+    this.executeSqlScript("/com/pixelus/company/company.sql", false);
+  }
 
-    @Test
-    public void findByIdShouldFindCompany() {
+  @Test
+  public void findByIdShouldFindCompany() {
 
-        assertNotNull(companyRepository.findById(COMPANY_ID));
-    }
+    assertNotNull(companyRepository.findById(COMPANY_ID));
+  }
 
-    @Test
-    public void findAllShouldFindAllCompanies() {
+  @Test
+  public void findAllShouldFindAllCompanies() {
 
-        assertThat(companyRepository.findAll().size(), is(2));
-    }
+    assertThat(companyRepository.findAll().size(), is(2));
+  }
 
-    @Test
-    public void updateShouldUpdateExistingCompany() {
+  @Test
+  public void updateShouldUpdateExistingCompany() {
 
-        Company company = companyRepository.findById(COMPANY_ID);
-        company.setName(company.getName() + " - UPDATED");
+    Company company = companyRepository.findById(COMPANY_ID);
+    company.setName(company.getName() + " - UPDATED");
 
-        companyRepository.update(company);
+    companyRepository.update(company);
 
-        // Explicitly flush the session to ensure it's not being cached!
-        sessionFactory.getCurrentSession().flush();
+    // Explicitly flush the session to ensure it's not being cached!
+    sessionFactory.getCurrentSession().flush();
 
-        Company updatedCompany = companyRepository.findById(1L);
-        assertThat(company.getName(), is(updatedCompany.getName()));
-    }
+    Company updatedCompany = companyRepository.findById(1L);
+    assertThat(company.getName(), is(updatedCompany.getName()));
+  }
 
-    @Test
-    public void saveShouldCreateNewCompany() {
+  @Test
+  public void saveShouldCreateNewCompany() {
 
-        int numUsers = companyRepository.findAll().size();
+    int numUsers = companyRepository.findAll().size();
 
-        final Company user = createCompany();
-        companyRepository.save(user);
+    final Company user = createCompany();
+    companyRepository.save(user);
 
-        // Explicitly flush the session to ensure it's not being cached!
-        sessionFactory.getCurrentSession().flush();
+    // Explicitly flush the session to ensure it's not being cached!
+    sessionFactory.getCurrentSession().flush();
 
-        assertEquals(companyRepository.findAll().size(), numUsers + 1);
-    }
+    assertEquals(companyRepository.findAll().size(), numUsers + 1);
+  }
 
-    @Test
-    public void deleteShouldDeleteExistingCompany() {
+  @Test
+  public void deleteShouldDeleteExistingCompany() {
 
-        Company company = companyRepository.findById(COMPANY_ID);
-        assertNotNull(company);
+    Company company = companyRepository.findById(COMPANY_ID);
+    assertNotNull(company);
 
-        companyRepository.delete(company);
+    companyRepository.delete(company);
 
-        // Explicitly flush the session to ensure it's not being cached!
-        sessionFactory.getCurrentSession().flush();
+    // Explicitly flush the session to ensure it's not being cached!
+    sessionFactory.getCurrentSession().flush();
 
-        assertNull(companyRepository.findById(COMPANY_ID));
-    }
+    assertNull(companyRepository.findById(COMPANY_ID));
+  }
 
-    private Company createCompany() {
+  private Company createCompany() {
 
-        Company company = new Company();
-        company.setName(COMPANY_NAME);
+    Company company = new Company();
+    company.setName(COMPANY_NAME);
 
-        return company;
-    }
+    return company;
+  }
 }

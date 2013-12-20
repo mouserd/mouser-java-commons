@@ -14,5 +14,5 @@ import java.util.List;
 
 public interface CompanyRepository {
 
-    List<Company> findAll();
+  List<Company> findAll();
 }

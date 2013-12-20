@@ -17,12 +17,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class CompanyRepositoryHibernateImpl
-      extends AbstractHibernateRepositoryImpl<Company, Long>
-      implements CompanyRepository {
+    extends AbstractHibernateRepositoryImpl<Company, Long>
+    implements CompanyRepository {
 
-    @Autowired
-    public CompanyRepositoryHibernateImpl(final SessionFactory sessionFactory) {
+  @Autowired
+  public CompanyRepositoryHibernateImpl(final SessionFactory sessionFactory) {
 
-        super(sessionFactory);
-    }
+    super(sessionFactory);
+  }
 }

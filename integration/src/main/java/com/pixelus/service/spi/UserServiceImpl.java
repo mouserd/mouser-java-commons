@@ -17,12 +17,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl
-      extends AbstractServiceImpl<User, Long>
-      implements UserService {
+    extends AbstractServiceImpl<User, Long>
+    implements UserService {
 
-    @Autowired
-    public UserServiceImpl(final UserRepository userRepository) {
+  @Autowired
+  public UserServiceImpl(final UserRepository userRepository) {
 
-        super(userRepository);
-    }
+    super(userRepository);
+  }
 }

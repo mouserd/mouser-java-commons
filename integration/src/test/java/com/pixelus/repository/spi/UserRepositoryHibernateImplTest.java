@@ -29,104 +29,104 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/context-persistence-test.xml" })
+@ContextConfiguration(locations = {"/context-persistence-test.xml"})
 public class UserRepositoryHibernateImplTest
-      extends AbstractTransactionalJUnit4SpringContextTests {
+    extends AbstractTransactionalJUnit4SpringContextTests {
 
-    private static final Long TEST_USER_ID = 1L;
-    private static final String TEST_SURNAME = "Bon";
-    private static final String TEST_FIRSTNAME = "David";
-    private static final Long TEST_COMPANY_ID = 1L;
+  private static final Long TEST_USER_ID = 1L;
+  private static final String TEST_SURNAME = "Bon";
+  private static final String TEST_FIRSTNAME = "David";
+  private static final Long TEST_COMPANY_ID = 1L;
 
-    @Autowired
-    private UserRepository userRepository;
+  @Autowired
+  private UserRepository userRepository;
 
-    @Autowired
-    private SessionFactory sessionFactory;
+  @Autowired
+  private SessionFactory sessionFactory;
 
-    @Before
-    public void setUp() {
+  @Before
+  public void setUp() {
 
-        executeSqlScript("/com/pixelus/company/company.sql", false);
-        executeSqlScript("/com/pixelus/user/user.sql", false);
-    }
+    executeSqlScript("/com/pixelus/company/company.sql", false);
+    executeSqlScript("/com/pixelus/user/user.sql", false);
+  }
 
-    @Test
-    public void findUserByIdShouldFindUser() {
+  @Test
+  public void findUserByIdShouldFindUser() {
 
-        User user = userRepository.findById(TEST_USER_ID);
+    User user = userRepository.findById(TEST_USER_ID);
 
-        assertNotNull(user);
-    }
+    assertNotNull(user);
+  }
 
-    @Test
-    public void findAllUsersShouldFindUsers() {
+  @Test
+  public void findAllUsersShouldFindUsers() {
 
-        List<User> users = userRepository.findAll();
+    List<User> users = userRepository.findAll();
 
-        assertThat(users.size(), is(3));
-    }
+    assertThat(users.size(), is(3));
+  }
 
-    @Test
-    public void saveUserShouldCreateNewUser() {
+  @Test
+  public void saveUserShouldCreateNewUser() {
 
-        int numUsers = userRepository.findAll().size();
+    int numUsers = userRepository.findAll().size();
 
-        final User user = createUser();
-        userRepository.save(user);
+    final User user = createUser();
+    userRepository.save(user);
 
-        // Explicitly flush the session to ensure it's not being cached!
-        sessionFactory.getCurrentSession().flush();
+    // Explicitly flush the session to ensure it's not being cached!
+    sessionFactory.getCurrentSession().flush();
 
-        assertEquals(userRepository.findAll().size(), numUsers + 1);
-    }
+    assertEquals(userRepository.findAll().size(), numUsers + 1);
+  }
 
-    @Test
-    public void updateUserShouldUpdateExistingUser() {
+  @Test
+  public void updateUserShouldUpdateExistingUser() {
 
-        User user = userRepository.findById(TEST_USER_ID);
-        user.setFirstName(user.getFirstName() + " - UPDATED");
+    User user = userRepository.findById(TEST_USER_ID);
+    user.setFirstName(user.getFirstName() + " - UPDATED");
 
-        userRepository.update(user);
+    userRepository.update(user);
 
-        // Explicitly flush the session to ensure it's not being cached!
-        sessionFactory.getCurrentSession().flush();
+    // Explicitly flush the session to ensure it's not being cached!
+    sessionFactory.getCurrentSession().flush();
 
-        User updatedUser = userRepository.findById(TEST_USER_ID);
-        assertThat(updatedUser.getFirstName(), is(user.getFirstName()));
-    }
+    User updatedUser = userRepository.findById(TEST_USER_ID);
+    assertThat(updatedUser.getFirstName(), is(user.getFirstName()));
+  }
 
-    @Test
-    public void deleteShouldDeleteExistingUser() {
+  @Test
+  public void deleteShouldDeleteExistingUser() {
 
-        User user = userRepository.findById(TEST_USER_ID);
-        assertNotNull(user);
-        userRepository.delete(user);
+    User user = userRepository.findById(TEST_USER_ID);
+    assertNotNull(user);
+    userRepository.delete(user);
 
-        // Explicitly flush the session to ensure it's not being cached!
-        sessionFactory.getCurrentSession().flush();
+    // Explicitly flush the session to ensure it's not being cached!
+    sessionFactory.getCurrentSession().flush();
 
-        user = userRepository.findById(TEST_USER_ID);
-        assertNull(user);
-    }
+    user = userRepository.findById(TEST_USER_ID);
+    assertNull(user);
+  }
 
-    private User createUser() {
+  private User createUser() {
 
-        final User user = new User();
+    final User user = new User();
 
-        user.setFirstName(TEST_FIRSTNAME);
-        user.setSurname(TEST_SURNAME);
-        user.setCompany(new Company(TEST_COMPANY_ID));
+    user.setFirstName(TEST_FIRSTNAME);
+    user.setSurname(TEST_SURNAME);
+    user.setCompany(new Company(TEST_COMPANY_ID));
 
-        return user;
-    }
+    return user;
+  }
 
-    @Test
-    public void testSaveUserShouldSetId() {
+  @Test
+  public void testSaveUserShouldSetId() {
 
-        final User user = createUser();
+    final User user = createUser();
 
-        userRepository.save(user);
-        assertNotNull("Users id should not have been set", user.getId());
-    }
+    userRepository.save(user);
+    assertNotNull("Users id should not have been set", user.getId());
+  }
 }

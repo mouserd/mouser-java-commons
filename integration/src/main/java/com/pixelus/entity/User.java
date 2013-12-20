@@ -20,64 +20,64 @@ import java.io.Serializable;
 @Entity
 @Table(name = "User")
 public class User
-      implements ModelEntity<Long>, Serializable {
+    implements ModelEntity<Long>, Serializable {
 
-    private static final long serialVersionUID = -4145030714084815206L;
+  private static final long serialVersionUID = -4145030714084815206L;
 
-    @Id
-    @GeneratedValue
-    @Column(name = "USER_ID")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "USER_ID")
+  private Long id;
 
-    @Column(name = "FIRST_NAME", nullable = false)
-    private String firstName;
+  @Column(name = "FIRST_NAME", nullable = false)
+  private String firstName;
 
-    @Column(name = "SURNAME", nullable = false)
-    private String surname;
+  @Column(name = "SURNAME", nullable = false)
+  private String surname;
 
-    @ManyToOne
-    @JoinColumn(name = "COMPANY_ID")
-    private Company company;
+  @ManyToOne
+  @JoinColumn(name = "COMPANY_ID")
+  private Company company;
 
-    @Override
-    public final Long getId() {
+  @Override
+  public final Long getId() {
 
-        return id;
-    }
+    return id;
+  }
 
-    @Override
-    public final void setId(final Long id) {
+  @Override
+  public final void setId(final Long id) {
 
-        this.id = id;
-    }
+    this.id = id;
+  }
 
-    public String getFirstName() {
+  public String getFirstName() {
 
-        return firstName;
-    }
+    return firstName;
+  }
 
-    public void setFirstName(final String firstName) {
+  public void setFirstName(final String firstName) {
 
-        this.firstName = firstName;
-    }
+    this.firstName = firstName;
+  }
 
-    public String getSurname() {
+  public String getSurname() {
 
-        return surname;
-    }
+    return surname;
+  }
 
-    public void setSurname(final String surname) {
+  public void setSurname(final String surname) {
 
-        this.surname = surname;
-    }
+    this.surname = surname;
+  }
 
-    public Company getCompany() {
+  public Company getCompany() {
 
-        return company;
-    }
+    return company;
+  }
 
-    public void setCompany(final Company company) {
+  public void setCompany(final Company company) {
 
-        this.company = company;
-    }
+    this.company = company;
+  }
 }

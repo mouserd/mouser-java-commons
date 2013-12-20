@@ -36,108 +36,108 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class AbstractHibernateRepositoryImplTest {
 
-    private StubHibernateRepositoryImpl repository;
+  private StubHibernateRepositoryImpl repository;
 
-    @Mock
-    private SessionFactory sessionFactory;
+  @Mock
+  private SessionFactory sessionFactory;
 
-    @Mock
-    private Session session;
+  @Mock
+  private Session session;
 
-    private StubEntity entity;
+  private StubEntity entity;
 
-    @Before
-    public void setUp() {
+  @Before
+  public void setUp() {
 
-        repository = new StubHibernateRepositoryImpl(sessionFactory);
+    repository = new StubHibernateRepositoryImpl(sessionFactory);
 
-        entity = new StubEntity();
+    entity = new StubEntity();
 
-        when(sessionFactory.getCurrentSession()).thenReturn(session);
-    }
+    when(sessionFactory.getCurrentSession()).thenReturn(session);
+  }
 
-    @Test
-    public void saveShouldCallSessionSave() {
+  @Test
+  public void saveShouldCallSessionSave() {
 
-        repository.save(entity);
-        verify(session).save(entity);
-    }
+    repository.save(entity);
+    verify(session).save(entity);
+  }
 
-    @Test
-    public void updateShouldCallSessionUpdate() {
+  @Test
+  public void updateShouldCallSessionUpdate() {
 
-        repository.update(entity);
-        verify(session).update(entity);
-    }
+    repository.update(entity);
+    verify(session).update(entity);
+  }
 
-    @Test
-    public void deleteShouldCallSessionDelete() {
+  @Test
+  public void deleteShouldCallSessionDelete() {
 
-        repository.delete(entity);
-        verify(session).delete(entity);
-    }
+    repository.delete(entity);
+    verify(session).delete(entity);
+  }
 
-    @Test
-    public void findByIdShouldQueryById() {
+  @Test
+  public void findByIdShouldQueryById() {
 
-        Query query = mock(Query.class);
-        when(session.createQuery("from " + entity.getClass().getName() + " where id = "
-              + "1")).thenReturn(query);
-        when(query.uniqueResult()).thenReturn(entity);
+    Query query = mock(Query.class);
+    when(session.createQuery("from " + entity.getClass().getName() + " where id = "
+        + "1")).thenReturn(query);
+    when(query.uniqueResult()).thenReturn(entity);
 
-        StubEntity returnedEntity = repository.findById(1L);
+    StubEntity returnedEntity = repository.findById(1L);
 
-        assertThat(returnedEntity, is(entity));
-        verify(query).uniqueResult();
-    }
+    assertThat(returnedEntity, is(entity));
+    verify(query).uniqueResult();
+  }
 
-    @Test
-    public void repositoryFindAllShouldCallSessionFind() {
+  @Test
+  public void repositoryFindAllShouldCallSessionFind() {
 
-        List<StubEntity> entities = Arrays.asList(entity);
-        Query query = mock(Query.class);
-        when(session.createQuery("from " + entity.getClass().getName()))
-              .thenReturn(query);
-        when(query.list()).thenReturn(entities);
+    List<StubEntity> entities = Arrays.asList(entity);
+    Query query = mock(Query.class);
+    when(session.createQuery("from " + entity.getClass().getName()))
+        .thenReturn(query);
+    when(query.list()).thenReturn(entities);
 
-        List<StubEntity> returnedEntities = repository.findAll();
+    List<StubEntity> returnedEntities = repository.findAll();
 
-        assertThat(returnedEntities, is(entities));
-        verify(query).list();
-    }
+    assertThat(returnedEntities, is(entities));
+    verify(query).list();
+  }
 
-    @Test
-    public void getEntityClassShouldReturnClassForParameterizedType() {
+  @Test
+  public void getEntityClassShouldReturnClassForParameterizedType() {
 
-        assertThat(repository.getEntityClass().getCanonicalName(),
-              is(StubEntity.class.getCanonicalName()));
-    }
+    assertThat(repository.getEntityClass().getCanonicalName(),
+        is(StubEntity.class.getCanonicalName()));
+  }
 
-    @Test
-    public void getEntityClassShouldNotReturnClassForNonParameterizedType() {
+  @Test
+  public void getEntityClassShouldNotReturnClassForNonParameterizedType() {
 
-        StubInvalidHibernateRepositoryImpl repository = new
-              StubInvalidHibernateRepositoryImpl(sessionFactory);
-        assertNull(repository.getEntityClass());
-    }
+    StubInvalidHibernateRepositoryImpl repository = new
+        StubInvalidHibernateRepositoryImpl(sessionFactory);
+    assertNull(repository.getEntityClass());
+  }
 
-    @Test
-    public void getClassFromTypeArgumentsShouldReturnNullForInvalidType() {
+  @Test
+  public void getClassFromTypeArgumentsShouldReturnNullForInvalidType() {
 
-        ParameterizedType type = mock(ParameterizedType.class);
-        when(type.getActualTypeArguments()).thenReturn(null);
-        Class clazz = repository.getClassFromTypeArguments(type);
+    ParameterizedType type = mock(ParameterizedType.class);
+    when(type.getActualTypeArguments()).thenReturn(null);
+    Class clazz = repository.getClassFromTypeArguments(type);
 
-        assertNull(clazz);
-    }
+    assertNull(clazz);
+  }
 
-    @Test
-    public void getClassFromTypeArgumentsShouldReturnNullForTypeWithNoAguments() {
+  @Test
+  public void getClassFromTypeArgumentsShouldReturnNullForTypeWithNoAguments() {
 
-        ParameterizedType type = mock(ParameterizedType.class);
-        when(type.getActualTypeArguments()).thenReturn(new Type[]{});
-        Class clazz = repository.getClassFromTypeArguments(type);
+    ParameterizedType type = mock(ParameterizedType.class);
+    when(type.getActualTypeArguments()).thenReturn(new Type[]{});
+    Class clazz = repository.getClassFromTypeArguments(type);
 
-        assertNull(clazz);
-    }
+    assertNull(clazz);
+  }
 }

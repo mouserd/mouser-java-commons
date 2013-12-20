@@ -18,30 +18,30 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <context:component-scan base-package="com.pixelus"/>
+  <context:component-scan base-package="com.pixelus"/>
 
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.pixelus"/>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
-                <prop key="show_sql">true</prop>
-                <prop key="format_sql">true</prop>
-                <prop key="use_sql_comments">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-            </props>
-        </property>
-    </bean>
+  <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="packagesToScan" value="com.pixelus"/>
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+        <prop key="show_sql">true</prop>
+        <prop key="format_sql">true</prop>
+        <prop key="use_sql_comments">true</prop>
+        <prop key="hibernate.hbm2ddl.auto">update</prop>
+      </props>
+    </property>
+  </bean>
 
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+  <bean id="transactionManager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
 
-    <!-- enable the configuration of transactional behavior based on annotations.
-         given we have a bean called 'transactionManager' the following could actually be
-         omitted if we really wanted to! -->
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+  <!-- enable the configuration of transactional behavior based on annotations.
+given we have a bean called 'transactionManager' the following could actually be
+omitted if we really wanted to! -->
+  <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

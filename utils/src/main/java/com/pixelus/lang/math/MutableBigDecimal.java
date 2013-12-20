@@ -16,70 +16,70 @@ import java.math.RoundingMode;
 */
 public class MutableBigDecimal {
 
-    private BigDecimal bigDecimal;
+  private BigDecimal bigDecimal;
 
-    public MutableBigDecimal(BigDecimal bigDecimal) {
+  public MutableBigDecimal(BigDecimal bigDecimal) {
 
-        this.bigDecimal = bigDecimal;
-    }
+    this.bigDecimal = bigDecimal;
+  }
 
-    public MutableBigDecimal() {
+  public MutableBigDecimal() {
 
-        bigDecimal = BigDecimal.ZERO;
-    }
+    bigDecimal = BigDecimal.ZERO;
+  }
 
-    public MutableBigDecimal(int i) {
+  public MutableBigDecimal(int i) {
 
-        bigDecimal = new BigDecimal(i);
-    }
+    bigDecimal = new BigDecimal(i);
+  }
 
-    public MutableBigDecimal(double d) {
+  public MutableBigDecimal(double d) {
 
-        bigDecimal = new BigDecimal(d);
-    }
+    bigDecimal = new BigDecimal(d);
+  }
 
-    public MutableBigDecimal(long l) {
+  public MutableBigDecimal(long l) {
 
-        bigDecimal = new BigDecimal(l);
-    }
+    bigDecimal = new BigDecimal(l);
+  }
 
-    public int intValue() {
+  public int intValue() {
 
-        return bigDecimal.intValue();
-    }
+    return bigDecimal.intValue();
+  }
 
-    public double doubleValue() {
+  public double doubleValue() {
 
-        return bigDecimal.doubleValue();
-    }
+    return bigDecimal.doubleValue();
+  }
 
-    public Long longValue() {
+  public Long longValue() {
 
-        return bigDecimal.longValue();
-    }
+    return bigDecimal.longValue();
+  }
 
-    public void add(BigDecimal augend) {
+  public void add(BigDecimal augend) {
 
-        bigDecimal = bigDecimal.add(augend);
-    }
+    bigDecimal = bigDecimal.add(augend);
+  }
 
-    public void subtract(BigDecimal augend) {
+  public void subtract(BigDecimal augend) {
 
-        bigDecimal = bigDecimal.subtract(augend);
-    }
+    bigDecimal = bigDecimal.subtract(augend);
+  }
 
-    public void divide(BigDecimal augend) {
+  public void divide(BigDecimal augend) {
 
-        bigDecimal = bigDecimal.divide(augend);
-    }
+    bigDecimal = bigDecimal.divide(augend);
+  }
 
-    public void multiply(BigDecimal augend) {
+  public void multiply(BigDecimal augend) {
 
-        bigDecimal = bigDecimal.multiply(augend);
-    }
+    bigDecimal = bigDecimal.multiply(augend);
+  }
 
-    public void divide(BigDecimal augend, int precision, RoundingMode roundingMode) {
+  public void divide(BigDecimal augend, int precision, RoundingMode roundingMode) {
 
-        bigDecimal = bigDecimal.divide(augend, precision, roundingMode);
-    }
+    bigDecimal = bigDecimal.divide(augend, precision, roundingMode);
+  }
 }

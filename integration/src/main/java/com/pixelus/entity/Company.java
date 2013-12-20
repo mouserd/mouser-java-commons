@@ -18,46 +18,46 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Company")
 public class Company
-      implements ModelEntity<Long>, Serializable {
+    implements ModelEntity<Long>, Serializable {
 
-    private static final long serialVersionUID = 3736121467799075340L;
+  private static final long serialVersionUID = 3736121467799075340L;
 
-    @Id
-    @GeneratedValue
-    @Column(name = "ID")
-    private Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "ID")
+  private Long id;
 
-    @Column(name = "NAME")
-    private String name;
+  @Column(name = "NAME")
+  private String name;
 
-    public Company() {
+  public Company() {
 
-    }
+  }
 
-    public Company(final Long id) {
+  public Company(final Long id) {
 
-        this.id = id;
-    }
+    this.id = id;
+  }
 
-    @Override
-    public final Long getId() {
+  @Override
+  public final Long getId() {
 
-        return id;
-    }
+    return id;
+  }
 
-    @Override
-    public final void setId(final Long id) {
+  @Override
+  public final void setId(final Long id) {
 
-        this.id = id;
-    }
+    this.id = id;
+  }
 
-    public String getName() {
+  public String getName() {
 
-        return name;
-    }
+    return name;
+  }
 
-    public void setName(String name) {
+  public void setName(String name) {
 
-        this.name = name;
-    }
+    this.name = name;
+  }
 }

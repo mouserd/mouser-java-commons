@@ -1,6 +1,6 @@
 <HTML>
 <BODY>
-    #set($foo = "Velocity")
+  #set($foo = "Velocity")
 Hello $foo World!
 <table>
 </table>

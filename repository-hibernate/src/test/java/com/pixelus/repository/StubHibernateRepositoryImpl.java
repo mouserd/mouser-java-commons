@@ -15,10 +15,10 @@ import org.hibernate.SessionFactory;
 * @author David Mouser
 */
 public class StubHibernateRepositoryImpl
-      extends AbstractHibernateRepositoryImpl<StubEntity, Long> {
+    extends AbstractHibernateRepositoryImpl<StubEntity, Long> {
 
-    public StubHibernateRepositoryImpl(SessionFactory sessionFactory) {
+  public StubHibernateRepositoryImpl(SessionFactory sessionFactory) {
 
-        super(sessionFactory);
-    }
+    super(sessionFactory);
+  }
 }

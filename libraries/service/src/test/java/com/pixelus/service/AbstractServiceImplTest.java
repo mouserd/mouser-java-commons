@@ -24,58 +24,58 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class AbstractServiceImplTest {
 
-    private static final String ENTITY_ID = "entity";
-    private AbstractServiceImpl<ModelEntity<String>, String> abstractService;
+  private static final String ENTITY_ID = "entity";
+  private AbstractServiceImpl<ModelEntity<String>, String> abstractService;
 
-    @Mock
-    private Repository<ModelEntity<String>, String> repository;
+  @Mock
+  private Repository<ModelEntity<String>, String> repository;
 
-    @Mock
-    private ModelEntity<String> mockEntity;
+  @Mock
+  private ModelEntity<String> mockEntity;
 
-    @Before
-    public void setUp() {
+  @Before
+  public void setUp() {
 
-        abstractService = new AbstractServiceImpl<>(repository);
-    }
+    abstractService = new AbstractServiceImpl<>(repository);
+  }
 
-    @Test
-    public void saveShouldCallRepository() {
+  @Test
+  public void saveShouldCallRepository() {
 
-        abstractService.save(mockEntity);
+    abstractService.save(mockEntity);
 
-        verify(repository).save(mockEntity);
-    }
+    verify(repository).save(mockEntity);
+  }
 
-    @Test
-    public void updateShouldCallRepository() {
+  @Test
+  public void updateShouldCallRepository() {
 
-        abstractService.update(mockEntity);
+    abstractService.update(mockEntity);
 
-        verify(repository).update(mockEntity);
-    }
+    verify(repository).update(mockEntity);
+  }
 
-    @Test
-    public void deleteShouldCallRepository() {
+  @Test
+  public void deleteShouldCallRepository() {
 
-        abstractService.delete(mockEntity);
+    abstractService.delete(mockEntity);
 
-        verify(repository).delete(mockEntity);
-    }
+    verify(repository).delete(mockEntity);
+  }
 
-    @Test
-    public void findByIdShouldCallRepository() {
+  @Test
+  public void findByIdShouldCallRepository() {
 
-        abstractService.findById(ENTITY_ID);
+    abstractService.findById(ENTITY_ID);
 
-        verify(repository).findById(ENTITY_ID);
-    }
+    verify(repository).findById(ENTITY_ID);
+  }
 
-    @Test
-    public void findAllShouldCallRepository() {
+  @Test
+  public void findAllShouldCallRepository() {
 
-        abstractService.findAll();
+    abstractService.findAll();
 
-        verify(repository).findAll();
-    }
+    verify(repository).findAll();
+  }
 }

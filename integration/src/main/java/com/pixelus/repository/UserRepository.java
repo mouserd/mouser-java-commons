@@ -11,6 +11,6 @@ package com.pixelus.repository;
 import com.pixelus.entity.User;
 
 public interface UserRepository
-      extends Repository<User, Long> {
+    extends Repository<User, Long> {
 
 }

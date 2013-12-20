@@ -21,81 +21,81 @@ import static org.hamcrest.core.Is.is;
 */
 public class MutableBigDecimalTest {
 
-    @Test
-    public void testDefaultConstructor() {
+  @Test
+  public void testDefaultConstructor() {
 
-        assertThat(new MutableBigDecimal().intValue(), is(0));
-    }
+    assertThat(new MutableBigDecimal().intValue(), is(0));
+  }
 
-    @Test
-    public void testBigDecimalConstructor() {
+  @Test
+  public void testBigDecimalConstructor() {
 
-        assertThat(new MutableBigDecimal(new BigDecimal(10)).intValue(), is(10));
-    }
+    assertThat(new MutableBigDecimal(new BigDecimal(10)).intValue(), is(10));
+  }
 
-    @Test
-    public void testIntConstructor() {
+  @Test
+  public void testIntConstructor() {
 
-        assertThat(new MutableBigDecimal(1).intValue(), is(1));
-    }
+    assertThat(new MutableBigDecimal(1).intValue(), is(1));
+  }
 
-    @Test
-    public void testDoubleConstructor() {
+  @Test
+  public void testDoubleConstructor() {
 
-        assertThat(new MutableBigDecimal(1.0).doubleValue(), is(1.0));
-    }
+    assertThat(new MutableBigDecimal(1.0).doubleValue(), is(1.0));
+  }
 
-    @Test
-    public void testLongConstructor() {
+  @Test
+  public void testLongConstructor() {
 
-        assertThat(new MutableBigDecimal(1L).longValue(), is(1L));
-    }
+    assertThat(new MutableBigDecimal(1L).longValue(), is(1L));
+  }
 
-    @Test
-    public void testAdd() {
+  @Test
+  public void testAdd() {
 
-        MutableBigDecimal bigDecimal = new MutableBigDecimal(10);
-        bigDecimal.add(new BigDecimal(10));
+    MutableBigDecimal bigDecimal = new MutableBigDecimal(10);
+    bigDecimal.add(new BigDecimal(10));
 
-        assertThat(bigDecimal.intValue(), is(20));
-    }
+    assertThat(bigDecimal.intValue(), is(20));
+  }
 
-    @Test
-    public void testSubtract() {
+  @Test
+  public void testSubtract() {
 
-        MutableBigDecimal bigDecimal = new MutableBigDecimal(20);
-        bigDecimal.subtract(new BigDecimal(10));
+    MutableBigDecimal bigDecimal = new MutableBigDecimal(20);
+    bigDecimal.subtract(new BigDecimal(10));
 
-        assertThat(bigDecimal.intValue(), is(10));
-    }
+    assertThat(bigDecimal.intValue(), is(10));
+  }
 
-    @Test
-    public void testDivide() {
+  @Test
+  public void testDivide() {
 
-        MutableBigDecimal bigDecimal = new MutableBigDecimal(20);
-        bigDecimal.divide(new BigDecimal(4));
+    MutableBigDecimal bigDecimal = new MutableBigDecimal(20);
+    bigDecimal.divide(new BigDecimal(4));
 
-        assertThat(bigDecimal.intValue(), is(5));
+    assertThat(bigDecimal.intValue(), is(5));
 
-        bigDecimal.divide(new BigDecimal(2));
-        assertThat(bigDecimal.doubleValue(), is(2.5));
-    }
+    bigDecimal.divide(new BigDecimal(2));
+    assertThat(bigDecimal.doubleValue(), is(2.5));
+  }
 
-    @Test
-    public void testDivideWithRounding() {
+  @Test
+  public void testDivideWithRounding() {
 
-        MutableBigDecimal bigDecimal = new MutableBigDecimal(10);
-        bigDecimal.divide(new BigDecimal(3), 2, RoundingMode.HALF_UP);
+    MutableBigDecimal bigDecimal = new MutableBigDecimal(10);
+    bigDecimal.divide(new BigDecimal(3), 2, RoundingMode.HALF_UP);
 
-        assertThat(bigDecimal.doubleValue(), is(3.33));
-    }
+    assertThat(bigDecimal.doubleValue(), is(3.33));
+  }
 
-    @Test
-    public void testMultiply() {
+  @Test
+  public void testMultiply() {
 
-        MutableBigDecimal bigDecimal = new MutableBigDecimal(10);
-        bigDecimal.multiply(new BigDecimal(10));
+    MutableBigDecimal bigDecimal = new MutableBigDecimal(10);
+    bigDecimal.multiply(new BigDecimal(10));
 
-        assertThat(bigDecimal.intValue(), is(100));
-    }
+    assertThat(bigDecimal.intValue(), is(100));
+  }
 }

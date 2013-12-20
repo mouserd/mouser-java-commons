@@ -12,5 +12,6 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
 
 <suppressions>
-  <suppress checks="MagicNumberCheck" files="com.pixelus.lang.math.MutableBigDecimalTest"/>
+  <suppress checks="MagicNumberCheck"
+            files="com.pixelus.lang.math.MutableBigDecimalTest"/>
 </suppressions>

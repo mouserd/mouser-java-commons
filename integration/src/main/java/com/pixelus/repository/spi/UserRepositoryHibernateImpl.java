@@ -17,12 +17,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserRepositoryHibernateImpl
-      extends AbstractHibernateRepositoryImpl<User, Long>
-      implements UserRepository {
+    extends AbstractHibernateRepositoryImpl<User, Long>
+    implements UserRepository {
 
-    @Autowired
-    public UserRepositoryHibernateImpl(final SessionFactory sessionFactory) {
+  @Autowired
+  public UserRepositoryHibernateImpl(final SessionFactory sessionFactory) {
 
-        super(sessionFactory);
-    }
+    super(sessionFactory);
+  }
 }

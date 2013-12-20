@@ -14,42 +14,42 @@ import com.pixelus.repository.Repository;
 import java.util.List;
 
 public class AbstractServiceImpl<T extends ModelEntity<?>, K>
-      implements Service<T, K> {
+    implements Service<T, K> {
 
-    private final Repository<T, K> repository;
+  private final Repository<T, K> repository;
 
-    public AbstractServiceImpl(final Repository<T, K> repository) {
+  public AbstractServiceImpl(final Repository<T, K> repository) {
 
-        this.repository = repository;
-    }
+    this.repository = repository;
+  }
 
-    @Override
-    public final List<T> findAll() {
+  @Override
+  public final List<T> findAll() {
 
-        return repository.findAll();
-    }
+    return repository.findAll();
+  }
 
-    @Override
-    public final T findById(final K id) {
+  @Override
+  public final T findById(final K id) {
 
-        return repository.findById(id);
-    }
+    return repository.findById(id);
+  }
 
-    @Override
-    public void save(T entity) {
+  @Override
+  public void save(T entity) {
 
-        repository.save(entity);
-    }
+    repository.save(entity);
+  }
 
-    @Override
-    public void update(T entity) {
+  @Override
+  public void update(T entity) {
 
-        repository.update(entity);
-    }
+    repository.update(entity);
+  }
 
-    @Override
-    public void delete(T entity) {
+  @Override
+  public void delete(T entity) {
 
-        repository.delete(entity);
-    }
+    repository.delete(entity);
+  }
 }

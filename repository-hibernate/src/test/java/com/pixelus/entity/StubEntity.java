@@ -12,16 +12,16 @@ package com.pixelus.entity;
 * @author David Mouser
 */
 public class StubEntity
-      implements ModelEntity<Long> {
+    implements ModelEntity<Long> {
 
-    @Override
-    public Long getId() {
+  @Override
+  public Long getId() {
 
-        return 1L;
-    }
+    return 1L;
+  }
 
-    @Override
-    public void setId(Long id) {
+  @Override
+  public void setId(Long id) {
 
-    }
+  }
 }
